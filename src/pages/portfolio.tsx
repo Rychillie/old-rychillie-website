@@ -9,7 +9,7 @@ import Navigation from "../components/Navigation";
 const Portfolio: NextPage = () => {
   return (
     <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
-      <h1>Está é uma pagina</h1>
+      <h1>Está é o portfolio</h1>
       <Navigation />
     </Layout>
   );
