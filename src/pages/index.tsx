@@ -10,7 +10,6 @@ const Home: NextPage = () => {
   return (
     <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
       <h1>Está é a pagina inicial</h1>
-      <Navigation />
     </Layout>
   );
 };
