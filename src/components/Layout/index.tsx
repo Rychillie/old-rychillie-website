@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { NextSeo } from "next-seo";
 import { motion } from "framer-motion";
-import styles from "../styles/components/Layout.module.scss";
+import styles from "./Layout.module.scss";
 
 type Props = {
   children: ReactNode;
