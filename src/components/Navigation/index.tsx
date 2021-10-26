@@ -1,5 +1,5 @@
 import { AnimateSharedLayout } from "framer-motion";
-import Link from "../NoScrollLink";
+import Link from "@components/NoScrollLink";
 
 const links: { name: string; href: string }[] = [
   {

@@ -3,8 +3,8 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.scss";
 
-import Layout from "../components/Layout";
-import Navigation from "../components/Navigation";
+import Layout from "@components/Layout";
+import Navigation from "@components/Navigation";
 
 const Home: NextPage = () => {
   return (
