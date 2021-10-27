@@ -23,8 +23,12 @@ const Home: NextPage = () => {
         <div className={styles.containerImage}>
           <Image
             src="/images/rychillie.png"
-            width="48"
-            height="48"
+            blurDataURL="/images/rychillie.png"
+            placeholder="blur"
+            quality={100}
+            layout="fixed"
+            width={48}
+            height={48}
             alt="this is me"
             className={styles.profileImage}
           />

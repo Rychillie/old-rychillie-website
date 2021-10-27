@@ -1,5 +1,7 @@
 .profile {
   display: flex;
+  width: fit-content;
+  height: fit-content;
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
@@ -12,6 +14,10 @@
 
 .containerImage {
   margin-right: 1.2rem;
+  border-radius: 50%;
+  display: block;
+  height: 48px;
+  width: 48px;
 }
 
 .profileImage {
@@ -19,4 +25,5 @@
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
+  display: block;
 }
