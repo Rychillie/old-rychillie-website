@@ -25,28 +25,44 @@ const links: { name: string; href: string; icon: string }[] = [
   },
 ];
 
+const variants = {
+  initial: {
+    opacity: 0,
+  },
+  animate: {
+    opacity: 1,
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
 const SocialList = (): JSX.Element => {
   return (
-    <ul className={styles.socialMedia}>
-      {links.map(({ name, href, icon }) => (
-        <AnimatePresence key={name}>
+    <AnimatePresence>
+      <motion.ul className={styles.socialMedia}>
+        {links.map(({ name, href, icon }) => (
           <motion.li
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            key={name}
+            variants={variants}
+            initial="initial"
+            animate="animate"
+            exit="exit"
           >
             <motion.a
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              variants={variants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
               href={href}
               target="_blank"
               rel="noreferrer"
             >
               <motion.img
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                variants={variants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
                 src={`/icons/${icon}.svg`}
                 alt={name}
               />
@@ -54,9 +70,9 @@ const SocialList = (): JSX.Element => {
 
             <span className={styles.socialName}>{name}</span>
           </motion.li>
-        </AnimatePresence>
-      ))}
-    </ul>
+        ))}
+      </motion.ul>
+    </AnimatePresence>
   );
 };
 
