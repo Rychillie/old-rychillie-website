@@ -4,6 +4,8 @@ import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const url = `https://rychillie.net${router.route}`;
@@ -27,6 +29,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         canonical={url}
       />
 
+      <Header />
+
       <AnimatePresence
         exitBeforeEnter
         initial={false}
@@ -34,6 +38,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       >
         <Component {...pageProps} canonical={url} key={url} />
       </AnimatePresence>
+
+      <Footer />
     </>
   );
 }
