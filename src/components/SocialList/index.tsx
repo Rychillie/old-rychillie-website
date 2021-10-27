@@ -25,58 +25,19 @@ const links: { name: string; href: string; icon: string }[] = [
   },
 ];
 
-const variants = {
-  initial: {
-    opacity: 0,
-  },
-  animate: {
-    opacity: 1,
-  },
-  exit: {
-    opacity: 0,
-  },
-};
-
 const SocialList = (): JSX.Element => {
   return (
-    <AnimatePresence
-      exitBeforeEnter
-      initial={true}
-      onExitComplete={() => window.scrollTo(0, 0)}
-    >
-      <motion.ul className={styles.socialMedia}>
-        {links.map(({ name, href, icon }) => (
-          <motion.li
-            key={name}
-            variants={variants}
-            initial="initial"
-            animate="animate"
-            exit="exit"
-          >
-            <motion.a
-              variants={variants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              href={href}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <motion.img
-                variants={variants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                src={`/icons/${icon}.svg`}
-                alt={name}
-              />
-            </motion.a>
+    <ul className={styles.socialMedia}>
+      {links.map(({ name, href, icon }) => (
+        <li key={name}>
+          <a href={href} target="_blank" rel="noreferrer">
+            <img src={`/icons/${icon}.svg`} alt={name} />
+          </a>
 
-            <span className={styles.socialName}>{name}</span>
-          </motion.li>
-        ))}
-      </motion.ul>
-    </AnimatePresence>
+          <span className={styles.socialName}>{name}</span>
+        </li>
+      ))}
+    </ul>
   );
 };
 
