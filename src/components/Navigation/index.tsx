@@ -11,6 +11,10 @@ const links: { name: string; href: string }[] = [
     name: "Portfolio",
     href: "/portfolio",
   },
+  {
+    name: "Sobre",
+    href: "/about",
+  },
 ];
 
 const Navigation = (): JSX.Element => {

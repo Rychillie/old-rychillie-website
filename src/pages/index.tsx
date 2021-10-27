@@ -1,22 +1,36 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
-import Link from "@components/NoScrollLink";
 import styles from "../styles/Home.module.scss";
 
+import Link from "@components/NoScrollLink";
 import Layout from "@components/Layout";
 import Navigation from "@components/Navigation";
+import SocialList from "@components/SocialList";
 
 const Home: NextPage = () => {
   return (
     <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
-      <h1>Rychillie</h1>
+      <h1>Hello, i&rsquo;m Rychillie</h1>
       <p>
-        Programador FrontEnd, estudante de UI/UX Design e Swift, compartilhando
-        meu conhecimento através de um <Link href="/blog">Blog</Link>, conheça{" "}
-        <Link href="/portfolio">meus trabalhos</Link> e um pouco mais{" "}
-        <Link href="/sobre">sobre mim</Link>.
+        Frontend Developer, junior UI Designer and Swift development student,
+        compartilhando meu conhecimento através do meu blog sharing my knowledge
+        through my <Link href="/blog">blog</Link>, know{" "}
+        <Link href="/portfolio">my work </Link> and a little more{" "}
+        <Link href="/sobre">about me</Link>.
       </p>
+      <div className={styles.profile}>
+        <div className={styles.containerImage}>
+          <Image
+            src="/images/rychillie.png"
+            width="48"
+            height="48"
+            alt="this is me"
+            className={styles.profileImage}
+          />
+        </div>
+        <SocialList />
+      </div>
     </Layout>
   );
 };

@@ -1,5 +1,5 @@
 import { AnimateSharedLayout } from "framer-motion";
-import styles from "./Header.module.scss";
+import styles from "./styles.module.scss";
 import Link from "next/link";
 import Navigation from "@components/Navigation";
 
@@ -8,7 +8,7 @@ const Header = (): JSX.Element => {
     <header className={styles.header}>
       <Link href="/">
         <a className={styles.logo}>
-          🖥 <span>Titulo</span>
+          🦄 <span>Rychillie</span>
         </a>
       </Link>
 
