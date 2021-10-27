@@ -55,13 +55,7 @@ const Layout = ({
       transition={{ type: "linear" }}
       className={`${styles.main} ${center && styles.center}`}
     >
-      <AnimatePresence
-        exitBeforeEnter
-        initial={true}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
-        {children}
-      </AnimatePresence>
+      {children}
     </motion.main>
     {hasFooter && <Footer />}
   </>
