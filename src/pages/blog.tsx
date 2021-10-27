@@ -8,8 +8,13 @@ import Navigation from "@components/Navigation";
 
 const Blog: NextPage = () => {
   return (
-    <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
-      <h1>Está é o blog</h1>
+    <Layout
+      title={"Blog"}
+      description={"Welcome to my world!"}
+      hasHeader
+      hasFooter
+    >
+      <h1>This is my blog</h1>
     </Layout>
   );
 };

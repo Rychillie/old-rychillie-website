@@ -8,12 +8,12 @@ const links: { name: string; href: string }[] = [
     href: "/blog",
   },
   {
-    name: "Portfolio",
-    href: "/portfolio",
+    name: "Work",
+    href: "/work",
   },
   {
-    name: "Sobre",
-    href: "/sobre",
+    name: "About",
+    href: "/about",
   },
 ];
 

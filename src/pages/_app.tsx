@@ -1,11 +1,8 @@
 import "../styles/globals.scss";
-import type { AppProps, NextWebVitalsMetric } from "next/app";
+import type { AppProps } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
-import { useEffect } from "react";
-import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
+import { AnimateSharedLayout } from "framer-motion";
 
 function MyApp({ Component, pageProps, router }: AppProps) {
   const url = `https://rychillie.net${router.route}`;
@@ -29,13 +26,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         canonical={url}
       />
 
-      <Header />
-
       <AnimateSharedLayout>
         <Component {...pageProps} canonical={url} key={url} />
       </AnimateSharedLayout>
-
-      <Footer />
     </>
   );
 }

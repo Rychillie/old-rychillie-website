@@ -6,6 +6,11 @@
   align-items: flex-start;
   padding-top: 4rem;
   padding-bottom: 4rem;
+  height: -webkit-fill-available;
 
   @extend .container;
+
+  &.center {
+    justify-content: center;
+  }
 }

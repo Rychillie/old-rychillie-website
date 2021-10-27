@@ -8,8 +8,13 @@ import Navigation from "@components/Navigation";
 
 const Portfolio: NextPage = () => {
   return (
-    <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
-      <h1>Está é o portfolio</h1>
+    <Layout
+      title={"My work"}
+      description={"Welcome to my world!"}
+      hasHeader
+      hasFooter
+    >
+      <h1>This is my work</h1>
     </Layout>
   );
 };

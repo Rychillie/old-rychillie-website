@@ -2,11 +2,16 @@ import React, { ReactNode } from "react";
 import { NextSeo } from "next-seo";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "./Layout.module.scss";
+import Header from "@components/Header";
+import Footer from "@components/Footer";
 
 type Props = {
   children: ReactNode;
   title: string;
   description: string;
+  hasHeader?: boolean | false;
+  hasFooter?: boolean | false;
+  center?: boolean | false;
 };
 
 const variants = {
@@ -27,20 +32,28 @@ const variants = {
   },
 };
 
-const Layout = ({ children, title, description }: Props): JSX.Element => (
+const Layout = ({
+  children,
+  title,
+  description,
+  hasHeader,
+  hasFooter,
+  center,
+}: Props): JSX.Element => (
   <>
     <NextSeo
       title={title}
       description={description}
       openGraph={{ title, description }}
     />
+    {hasHeader && <Header />}
     <motion.main
       initial="hidden"
       animate="enter"
       exit="exit"
       variants={variants}
       transition={{ type: "linear" }}
-      className={styles.main}
+      className={`${styles.main} ${center && styles.center}`}
     >
       <AnimatePresence
         exitBeforeEnter
@@ -50,6 +63,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
         {children}
       </AnimatePresence>
     </motion.main>
+    {hasFooter && <Footer />}
   </>
 );
 

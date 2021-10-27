@@ -8,8 +8,13 @@ import Navigation from "@components/Navigation";
 
 const Sobre: NextPage = () => {
   return (
-    <Layout title={"Página Inicial"} description={"Bem vindo ao meu mundo!"}>
-      <h1>Está é o Sobre</h1>
+    <Layout
+      title={"About me"}
+      description={"Welcome to my world!"}
+      hasHeader
+      hasFooter
+    >
+      <h1>This is about me</h1>
     </Layout>
   );
 };
