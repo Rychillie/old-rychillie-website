@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import { NextSeo } from "next-seo";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import styles from "./Layout.module.scss";
 
 type Props = {
@@ -42,7 +42,13 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
       transition={{ type: "linear" }}
       className={styles.main}
     >
-      {children}
+      <AnimatePresence
+        exitBeforeEnter
+        initial={true}
+        onExitComplete={() => window.scrollTo(0, 0)}
+      >
+        {children}
+      </AnimatePresence>
     </motion.main>
   </>
 );
