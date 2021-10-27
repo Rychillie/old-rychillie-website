@@ -13,7 +13,7 @@ const links: { name: string; href: string }[] = [
   },
   {
     name: "Sobre",
-    href: "/about",
+    href: "/sobre",
   },
 ];
 

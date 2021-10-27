@@ -3,7 +3,7 @@ import type { AppProps, NextWebVitalsMetric } from "next/app";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { useEffect } from "react";
-import { AnimatePresence } from "framer-motion";
+import { AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
@@ -31,13 +31,9 @@ function MyApp({ Component, pageProps, router }: AppProps) {
 
       <Header />
 
-      <AnimatePresence
-        exitBeforeEnter
-        initial={true}
-        onExitComplete={() => window.scrollTo(0, 0)}
-      >
+      <AnimateSharedLayout>
         <Component {...pageProps} canonical={url} key={url} />
-      </AnimatePresence>
+      </AnimateSharedLayout>
 
       <Footer />
     </>
