@@ -1,3 +1,4 @@
+@import "../../styles/variables.scss";
 @import "../../styles/utils.scss";
 
 .header {
@@ -8,4 +9,27 @@
   align-items: center;
 
   @extend .container;
+}
+
+.logo {
+  color: $light;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 24px;
+  background-image: none;
+
+  span {
+    margin-left: 0.6rem;
+    font-size: 18px;
+    line-height: 24px;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+    background-image: none;
+  }
 }
