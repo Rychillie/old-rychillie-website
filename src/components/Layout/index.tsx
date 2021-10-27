@@ -11,13 +11,13 @@ type Props = {
 
 const variants = {
   hidden: {
-    height: 0,
+    height: "fit-content",
     opacity: 0,
     x: -200,
     y: 0,
   },
   enter: {
-    height: 0,
+    height: "fit-content",
     opacity: 1,
     x: 0,
     y: 0,
