@@ -31,7 +31,7 @@ const variants = {
 };
 
 const Layout = ({ children, title, description }: Props): JSX.Element => (
-  <div>
+  <>
     <NextSeo
       title={title}
       description={description}
@@ -47,7 +47,7 @@ const Layout = ({ children, title, description }: Props): JSX.Element => (
     >
       {children}
     </motion.main>
-  </div>
+  </>
 );
 
 export default Layout;
