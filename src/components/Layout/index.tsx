@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import { NextSeo } from "next-seo";
-import { AnimatePresence, motion } from "framer-motion";
-import styles from "./Layout.module.scss";
+import { motion } from "framer-motion";
+import styles from "./styles.module.scss";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
 
