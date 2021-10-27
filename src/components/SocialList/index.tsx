@@ -39,7 +39,11 @@ const variants = {
 
 const SocialList = (): JSX.Element => {
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      exitBeforeEnter
+      initial={true}
+      onExitComplete={() => window.scrollTo(0, 0)}
+    >
       <motion.ul className={styles.socialMedia}>
         {links.map(({ name, href, icon }) => (
           <motion.li
