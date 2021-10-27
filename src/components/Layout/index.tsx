@@ -10,9 +10,24 @@ type Props = {
 };
 
 const variants = {
-  hidden: { opacity: 0, x: -200, y: 0 },
-  enter: { opacity: 1, x: 0, y: 0 },
-  exit: { opacity: 0, x: 0, y: -100 },
+  hidden: {
+    height: 0,
+    opacity: 0,
+    x: -200,
+    y: 0,
+  },
+  enter: {
+    height: 0,
+    opacity: 1,
+    x: 0,
+    y: 0,
+  },
+  exit: {
+    height: "fit-content",
+    opacity: 0,
+    x: 0,
+    y: -100,
+  },
 };
 
 const Layout = ({ children, title, description }: Props): JSX.Element => (
