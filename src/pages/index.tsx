@@ -8,8 +8,10 @@ import content from "../data/pages.json";
 import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+  const router = useRouter();
+
   const homeContent = content.homePage;
-  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { locale } = router;
   const {
     title,
     description,
@@ -20,7 +22,7 @@ const Home: NextPage = () => {
     myWork,
     littleMore,
     aboutMe,
-  } = homeContent[locale];
+  } = homeContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
 
   return (
     <Layout title={title} description={description} center>

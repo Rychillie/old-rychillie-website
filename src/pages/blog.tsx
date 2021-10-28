@@ -6,8 +6,9 @@ import content from "../data/pages.json";
 
 const Blog: NextPage = ({ posts }: any) => {
   const blogContent = content.blogPage;
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { title, description, titleContent, contentPage } = blogContent[locale];
+  const { locale } = useRouter();
+  const { title, description, titleContent, contentPage } =
+    blogContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
 
   return (
     <Layout title={title} description={description} hasHeader hasFooter>

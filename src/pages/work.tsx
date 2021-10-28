@@ -6,8 +6,9 @@ import styles from "../styles/Work.module.scss";
 
 const Portfolio: NextPage = () => {
   const workContent = content.workPage;
-  const { locale, locales, defaultLocale, asPath } = useRouter();
-  const { title, description, titleContent, contentPage } = workContent[locale];
+  const { locale } = useRouter();
+  const { title, description, titleContent, contentPage } =
+    workContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
 
   return (
     <Layout title={title} description={description} hasHeader hasFooter>

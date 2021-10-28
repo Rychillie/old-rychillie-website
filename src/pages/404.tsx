@@ -7,9 +7,9 @@ import styles from "../styles/404.module.scss";
 
 const Home: NextPage = () => {
   const errorContent = content.errorPage;
-  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { locale } = useRouter();
   const { title, description, titleContent, contentPage, linkHome } =
-    errorContent[locale];
+    errorContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
 
   return (
     <Layout title={title} description={description} center>
