@@ -31,7 +31,7 @@ const SocialList = (): JSX.Element => {
       {links.map(({ name, href, icon }) => (
         <li key={name}>
           <a href={href} target="_blank" rel="noreferrer">
-            <img src={`/icons/${icon}.svg`} alt={name} />
+            <img src={`/icons/${icon}.svg`} width={22} height={22} alt={name} />
           </a>
 
           <span className={styles.socialName}>{name}</span>
