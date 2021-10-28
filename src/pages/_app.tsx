@@ -1,11 +1,27 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
+import { useEffect } from "react";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { AnimateSharedLayout } from "framer-motion";
 
+import * as gtag from "@lib/gtag";
+import Analytics from "@components/Analytics";
+
 function MyApp({ Component, pageProps, router }: AppProps) {
   const url = `https://rychillie.net${router.route}`;
+  const myRouter = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      gtag.pageview(url);
+    };
+    myRouter.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      myRouter.events.off("routeChangeComplete", handleRouteChange);
+    };
+  }, [myRouter.events]);
 
   return (
     <>
@@ -29,6 +45,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <AnimateSharedLayout>
         <Component {...pageProps} canonical={url} key={url} />
       </AnimateSharedLayout>
+      <Analytics />
     </>
   );
 }
