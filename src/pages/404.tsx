@@ -1,17 +1,21 @@
 import type { NextPage } from "next";
-import Image from "next/image";
-import styles from "../styles/Home.module.scss";
-
+import { useRouter } from "next/router";
 import Link from "@components/NoScrollLink";
 import Layout from "@components/Layout";
-import SocialList from "@components/SocialList";
+import content from "../data/pages.json";
+import styles from "../styles/404.module.scss";
 
 const Home: NextPage = () => {
+  const errorContent = content.errorPage;
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { title, description, titleContent, contentPage, linkHome } =
+    errorContent[locale];
+
   return (
-    <Layout title={"404 NOT FOUND"} description={"OPS!"} center>
-      <h1>404 NOT FOUND</h1>
+    <Layout title={title} description={description} center>
+      <h1>{titleContent}</h1>
       <p>
-        Sorry, maybe you can go back to <Link href="/">Home Page</Link>.
+        {contentPage} <Link href="/">{linkHome}</Link>.
       </p>
     </Layout>
   );

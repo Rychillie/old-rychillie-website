@@ -1,20 +1,20 @@
 import type { NextPage } from "next";
 import styles from "../styles/Blog.module.scss";
-
+import { useRouter } from "next/router";
 import Layout from "@components/Layout";
+import content from "../data/pages.json";
 
 const Blog: NextPage = ({ posts }: any) => {
+  const blogContent = content.blogPage;
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { title, description, titleContent, contentPage } = blogContent[locale];
+
   return (
-    <Layout
-      title={"Blog"}
-      description={"Welcome to my world!"}
-      hasHeader
-      hasFooter
-    >
-      <h1>This is my blog</h1>
+    <Layout title={title} description={description} hasHeader hasFooter>
+      <h1>{titleContent}</h1>
 
       <div>
-        <p>TODO:</p>
+        <p>{contentPage}</p>
       </div>
     </Layout>
   );

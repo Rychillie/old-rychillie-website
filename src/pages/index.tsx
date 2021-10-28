@@ -1,25 +1,34 @@
 import type { NextPage } from "next";
 import Image from "next/image";
-import styles from "../styles/Home.module.scss";
-
+import { useRouter } from "next/router";
 import Link from "@components/NoScrollLink";
 import Layout from "@components/Layout";
 import SocialList from "@components/SocialList";
+import content from "../data/pages.json";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
+  const homeContent = content.homePage;
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const {
+    title,
+    description,
+    titleContent,
+    synopsis,
+    blog,
+    know,
+    myWork,
+    littleMore,
+    aboutMe,
+  } = homeContent[locale];
+
   return (
-    <Layout
-      title={"Hello, i'm Rychillie"}
-      description={"Welcome to my world!"}
-      center
-    >
-      <h1>Hello, i&rsquo;m Rychillie</h1>
+    <Layout title={title} description={description} center>
+      <h1>{titleContent}</h1>
       <p>
-        Frontend Developer, junior UI Designer and Swift development student,
-        compartilhando meu conhecimento através do meu blog sharing my knowledge
-        through my <Link href="/blog">blog</Link>, know{" "}
-        <Link href="/work">my work</Link> and a little more{" "}
-        <Link href="/about">about me</Link>.
+        {synopsis} <Link href="/blog">{blog}</Link>, {know}{" "}
+        <Link href="/work">{myWork}</Link> {littleMore}{" "}
+        <Link href="/about">{aboutMe}</Link>.
       </p>
       <div className={styles.profile}>
         <div className={styles.containerImage}>

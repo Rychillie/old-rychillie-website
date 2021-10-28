@@ -1,23 +1,20 @@
 import type { NextPage } from "next";
-import Head from "next/head";
-import Image from "next/image";
-// import styles from "../styles/Portfolio.module.scss";
-
+import { useRouter } from "next/router";
 import Layout from "@components/Layout";
-import Navigation from "@components/Navigation";
+import content from "../data/pages.json";
+import styles from "../styles/Work.module.scss";
 
 const Portfolio: NextPage = () => {
+  const workContent = content.workPage;
+  const { locale, locales, defaultLocale, asPath } = useRouter();
+  const { title, description, titleContent, contentPage } = workContent[locale];
+
   return (
-    <Layout
-      title={"My work"}
-      description={"Welcome to my world!"}
-      hasHeader
-      hasFooter
-    >
-      <h1>This is my work</h1>
+    <Layout title={title} description={description} hasHeader hasFooter>
+      <h1>{titleContent}</h1>
 
       <div>
-        <p>TODO:</p>
+        <p>{contentPage}</p>
       </div>
     </Layout>
   );

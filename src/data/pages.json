@@ -1,0 +1,86 @@
+{
+  "homePage": {
+    "en-US": {
+      "title": "Hello, i'm Rychillie",
+      "description": "Welcome to my world!",
+      "titleContent": "Hello, i'm Rychillie",
+      "synopsis": "Frontend Developer, junior UI Designer and Swift development student, sharing my knowledge through my",
+      "blog": "blog",
+      "know": "know",
+      "myWork": "my work",
+      "littleMore": "and a little more",
+      "aboutMe": "about me",
+      "altImage": "this is me"
+    },
+    "pt-BR": {
+      "title": "Olá, eu sou Rychillie",
+      "description": "Bem vindo ao meu mundo!",
+      "titleContent": "Olá, eu sou Rychillie",
+      "synopsis": "Desenvolvedor Frontend, UI Designer Junior e estudante de desenvolvimento Swift, compartilhando conhecimento através do meu",
+      "blog": "blog",
+      "know": "conheça mais do",
+      "myWork": "meu trabalho",
+      "littleMore": "e um pouco mais",
+      "aboutMe": "sobre mim",
+      "altImage": "este sou eu"
+    }
+  },
+  "blogPage": {
+    "en-US": {
+      "title": "Blog",
+      "description": "Welcome to my world!",
+      "titleContent": "This is my blog",
+      "contentPage": "TODO..."
+    },
+    "pt-BR": {
+      "title": "Blog",
+      "description": "Bem vindo ao meu mundo!",
+      "titleContent": "Este é meu blog",
+      "contentPage": "Em construção..."
+    }
+  },
+  "aboutPage": {
+    "en-US": {
+      "title": "About",
+      "description": "Welcome to my world!",
+      "titleContent": "This is about me",
+      "contentPage": "TODO..."
+    },
+    "pt-BR": {
+      "title": "Sobre",
+      "description": "Bem vindo ao meu mundo!",
+      "titleContent": "Este sou eu",
+      "contentPage": "Em construção..."
+    }
+  },
+  "errorPage": {
+    "en-US": {
+      "title": "404 NOT FOUND",
+      "description": "OPS!",
+      "titleContent": "404 NOT FOUND",
+      "contentPage": "Sorry, maybe you can go back to",
+      "linkHome": "Home Page"
+    },
+    "pt-BR": {
+      "title": "404 NÃO ENCONTRADO",
+      "description": "OPS!",
+      "titleContent": "404 NÃO ENCONTRADO",
+      "contentPage": "Desculpe, talvez você pode voltar para a",
+      "linkHome": "Pagina inicial"
+    }
+  },
+  "workPage": {
+    "en-US": {
+      "title": "Work",
+      "description": "Welcome to my world!",
+      "titleContent": "This is my work",
+      "contentPage": "TODO..."
+    },
+    "pt-BR": {
+      "title": "Portfólio",
+      "description": "Bem vindo ao meu mundo!",
+      "titleContent": "Este é meu Portfólio",
+      "contentPage": "Em construção..."
+    }
+  }
+}
