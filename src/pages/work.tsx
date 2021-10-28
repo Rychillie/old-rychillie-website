@@ -15,6 +15,10 @@ const Portfolio: NextPage = () => {
       hasFooter
     >
       <h1>This is my work</h1>
+
+      <div>
+        <p>TODO:</p>
+      </div>
     </Layout>
   );
 };

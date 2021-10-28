@@ -14,7 +14,7 @@ const Blog: NextPage = ({ posts }: any) => {
       <h1>This is my blog</h1>
 
       <div>
-        <p>Listagem de posts</p>
+        <p>TODO:</p>
       </div>
     </Layout>
   );
