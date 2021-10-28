@@ -3,7 +3,7 @@ import styles from "../styles/Blog.module.scss";
 
 import Layout from "@components/Layout";
 
-const Blog: NextPage = () => {
+const Blog: NextPage = ({ posts }: any) => {
   return (
     <Layout
       title={"Blog"}
@@ -12,6 +12,10 @@ const Blog: NextPage = () => {
       hasFooter
     >
       <h1>This is my blog</h1>
+
+      <div>
+        <p>Listagem de posts</p>
+      </div>
     </Layout>
   );
 };
