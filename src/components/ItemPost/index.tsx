@@ -22,9 +22,11 @@ const ItemPost = ({
   tags,
   locale,
 }: Props): JSX.Element => {
+  const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
+
   return (
     <div className={styles.itemPost}>
-      <Link href={`${locale}/${slug}`}>
+      <Link href={`${postLocale}/${slug}`}>
         <a className={styles.logo}>
           <div className={styles.itemHeader}>
             <h3>{title}</h3>

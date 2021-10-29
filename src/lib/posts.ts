@@ -41,13 +41,10 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
   return posts;
 }
 
-export async function getPostBySlug({
-  slug,
-  locale = "en-US",
-}: {
-  slug: string;
-  locale: string;
-}) {
+export async function getPostBySlug(
+  slug: string,
+  { locale = "en-US" }: { locale: string }
+) {
   const basePath = `./content/blog/${locale}`;
   const fileContent = await fs.readFile(`${basePath}/${slug}.md`);
 

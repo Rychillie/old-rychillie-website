@@ -17,8 +17,8 @@ type Props = {
 // component for generate blog post page
 const BlogPost = ({ post }: Props) => {
   return (
-    <Layout title={""} description={""}>
-      <h1>{post?.title ?? "[not-set]"}</h1>
+    <Layout title={post.title} description={post.description}>
+      <h1>{post.title}</h1>
     </Layout>
   );
 };

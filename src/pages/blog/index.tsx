@@ -20,6 +20,7 @@ type Props = {
 
 export async function getStaticProps({ locale }: { locale: string }) {
   const posts = await getAllPosts({ locale });
+  console.log("🚀 ~ file: index.tsx ~ line 23 ~ getStaticProps ~ posts", posts);
 
   return {
     props: {
@@ -30,7 +31,6 @@ export async function getStaticProps({ locale }: { locale: string }) {
 }
 
 const Blog = ({ posts, locale }: Props) => {
-  console.log("posts", posts);
   const blogContent = content.blogPage;
 
   const { title, description, titleContent, contentPage } =
@@ -41,10 +41,9 @@ const Blog = ({ posts, locale }: Props) => {
       <h1>{titleContent}</h1>
 
       <div>
-        {contentPage}
+        {/* {contentPage} */}
 
-        {/* {posts.map((post) => (
-          // TODO: add Post page
+        {posts.map((post) => (
           <ItemPost
             key={post.slug}
             title={post.title}
@@ -56,7 +55,7 @@ const Blog = ({ posts, locale }: Props) => {
             tags={post.tags}
             locale={locale}
           />
-        ))} */}
+        ))}
       </div>
     </Layout>
   );
