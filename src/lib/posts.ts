@@ -52,16 +52,13 @@ export async function getPostBySlug(
   const content = marked(meta.content);
   console.log(content);
 
-  const thumbnailUrl = meta.data.image;
-
   return {
     title: meta.data.title,
     description: meta.data.description,
-    postMonth: meta.data.postMonth,
-    postDay: meta.data.postDay,
-    postID: meta.data.postID,
-    tags: meta.data.tag,
-    thumbnailUrl,
+    isPublished: meta.data.isPublished,
+    thumbnailUrl: meta.data.image,
+    date: meta.data.date,
+    tags: meta.data.tags,
     content,
     slug,
   };
