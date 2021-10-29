@@ -26,7 +26,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   return (
     <>
       <Head>
-        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
       </Head>
       <DefaultSeo
         titleTemplate="%s - Rychillie.net"
