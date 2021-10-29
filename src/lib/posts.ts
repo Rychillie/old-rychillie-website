@@ -25,6 +25,7 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
       const fullPath = path.resolve(file);
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
+
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
@@ -40,23 +41,31 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
   return posts;
 }
 
-// export async function getPostBySlug(slug: any) {
-//   const fileContent = await import(`../../../content/articles/${slug}.md`);
+export async function getPostBySlug({
+  slug,
+  locale = "en-US",
+}: {
+  slug: string;
+  locale: string;
+}) {
+  const basePath = `./content/blog/${locale}`;
+  const fileContent = await fs.readFile(`${basePath}/${slug}.md`);
 
-//   const meta = matter(fileContent.default);
-//   const content = marked(meta.content);
+  const meta = matter(fileContent);
+  const content = marked(meta.content);
+  console.log(content);
 
-//   const thumbnailUrl = meta.data.image;
+  const thumbnailUrl = meta.data.image;
 
-//   return {
-//     title: meta.data.title,
-//     description: meta.data.description,
-//     postMonth: meta.data.postMonth,
-//     postDay: meta.data.postDay,
-//     postID: meta.data.postID,
-//     tags: meta.data.tag,
-//     thumbnailUrl,
-//     content,
-//     slug,
-//   };
-// }
+  return {
+    title: meta.data.title,
+    description: meta.data.description,
+    postMonth: meta.data.postMonth,
+    postDay: meta.data.postDay,
+    postID: meta.data.postID,
+    tags: meta.data.tag,
+    thumbnailUrl,
+    content,
+    slug,
+  };
+}

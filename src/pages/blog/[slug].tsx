@@ -1,6 +1,9 @@
+import { GetStaticPropsContext } from "next";
+import { getPostBySlug, getAllPosts } from "@lib/posts";
 import Layout from "@components/Layout";
 
 type Props = {
+  locale: string;
   post: {
     slug: string;
     title: string;
@@ -10,8 +13,6 @@ type Props = {
     date: string;
   };
 };
-
-export async function getStaticPaths() {}
 
 // component for generate blog post page
 const BlogPost = ({ post }: Props) => {
