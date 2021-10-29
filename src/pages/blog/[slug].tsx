@@ -44,10 +44,12 @@ export async function getStaticPaths({ locale }: staticProps) {
 }
 
 // component for generate blog post page
-export const BlogPost = ({ post }: Props) => {
+const BlogPost = ({ post }: Props) => {
   return (
     <Layout title={post.title} description={post.description}>
       <h1>{post.title}</h1>
     </Layout>
   );
 };
+
+export default BlogPost;
