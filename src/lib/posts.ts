@@ -49,8 +49,6 @@ export async function getPostBySlug(
   // definição da pasta de armazenamento do conteúdo
   const basePath = `./content/blog/${locale}`;
 
-  console.log(basePath);
-
   // faz a leitura dos arquivos e devolve um array com os arquivos
   const files = await glob(`${basePath}/*.md`);
 
