@@ -8,7 +8,7 @@ type Props = {
   params: {
     slug: string;
   };
-  props: {
+  post: {
     title: string;
     description: string;
     isPublished: string;
@@ -43,10 +43,11 @@ export async function getStaticPaths({ locale }: Props) {
 }
 
 // component for generate blog post page
-const BlogPost = ({ props }: Props) => {
+const BlogPost = ({ post, locale }: Props) => {
+  console.log(post);
   return (
-    <Layout title={"title"} description={"description"}>
-      <h1>{props.title}</h1>
+    <Layout title={"title"} description={"description"} hasHeader hasFooter>
+      <h1>title</h1>
     </Layout>
   );
 };
