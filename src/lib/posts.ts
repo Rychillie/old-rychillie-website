@@ -50,7 +50,6 @@ export async function getPostBySlug(
 
   const meta = matter(fileContent);
   const content = marked(meta.content);
-  console.log(content);
 
   return {
     title: meta.data.title,

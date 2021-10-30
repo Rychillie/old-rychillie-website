@@ -20,7 +20,6 @@ type Props = {
 
 export async function getStaticProps({ locale }: { locale: string }) {
   const posts = await getAllPosts({ locale });
-  console.log("🚀 ~ file: index.tsx ~ line 23 ~ getStaticProps ~ posts", posts);
 
   return {
     props: {
