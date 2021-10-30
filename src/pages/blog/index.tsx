@@ -1,9 +1,9 @@
-import styles from "../styles/Blog.module.scss";
 import { getAllPosts } from "@lib/posts";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import ItemPost from "@components/ItemPost";
-import content from "../data/pages.json";
+import content from "../../data/pages.json";
+import styles from "../../styles/Blog.module.scss";
 
 type Props = {
   locale: string;
@@ -40,7 +40,7 @@ const Blog = ({ posts, locale }: Props) => {
     <Layout title={title} description={description} hasHeader hasFooter>
       <h1>{titleContent}</h1>
 
-      <div>
+      <div className={styles.postListing}>
         {/* {contentPage} */}
 
         {posts.map((post) => (

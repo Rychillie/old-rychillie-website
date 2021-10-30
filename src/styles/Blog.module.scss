@@ -1,0 +1,11 @@
+.postListing {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  a {
+    & + a {
+      margin-top: 1.6rem;
+    }
+  }
+}

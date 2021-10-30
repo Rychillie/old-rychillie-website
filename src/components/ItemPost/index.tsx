@@ -25,17 +25,15 @@ const ItemPost = ({
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
 
   return (
-    <div className={styles.itemPost}>
-      <Link href={`${postLocale}/${slug}`}>
-        <a className={styles.logo}>
-          <div className={styles.itemHeader}>
-            <h3>{title}</h3>
-            <span>{date}</span>
-          </div>
-          <p>{description}</p>
-        </a>
-      </Link>
-    </div>
+    <Link href={`${postLocale}/${slug}`}>
+      <a className={styles.itemPost}>
+        <div className={styles.itemHeader}>
+          <h3>{title}</h3>
+          <span>{date}</span>
+        </div>
+        <p>{description}</p>
+      </a>
+    </Link>
   );
 };
 

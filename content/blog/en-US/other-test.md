@@ -1,6 +1,6 @@
 ---
 title: "Other Test EN"
-description: "test"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In facilisis, neque in fermentum tempor, orci velit maximus nisl."
 date: "2020-01-02"
 isPublished: true
 image: ""
