@@ -3,6 +3,7 @@ import { getPostBySlug, getAllPosts } from "@lib/posts";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import { Params } from "next/dist/server/router";
+import styles from "../../styles/Blog.module.scss";
 
 type Props = {
   locale: "en-US" | string;
@@ -57,6 +58,10 @@ const BlogPost = ({ post, locale }: Props) => {
       hasFooter
     >
       <h1>{post.title}</h1>
+
+      <article className={styles.article}>
+        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      </article>
     </Layout>
   );
 };
