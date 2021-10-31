@@ -1,4 +1,5 @@
 @import "./variables.scss";
+@import "./code.module.scss";
 
 * {
   padding: 0;
@@ -82,4 +83,10 @@ a {
   &:hover {
     opacity: 0.72;
   }
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
 }

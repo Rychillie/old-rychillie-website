@@ -58,13 +58,15 @@ export async function getPostBySlug(
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
 
+      const content = marked(meta.content);
+
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
         thumbnailUrl: meta.data.image,
-        content: meta.content,
         date: meta.data.date,
+        content: content,
       };
     })
   );

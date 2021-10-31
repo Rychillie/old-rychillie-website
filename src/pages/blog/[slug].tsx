@@ -1,7 +1,9 @@
+import React, { useEffect } from "react";
 import { getPostBySlug, getAllPosts } from "@lib/posts";
 import Layout from "@components/Layout";
 import { Params } from "next/dist/server/router";
 import styles from "../../styles/Blog.module.scss";
+import Prism from "prismjs";
 
 type Props = {
   locale: "en-US" | string;
@@ -54,6 +56,12 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 
 // component for generate blog post page
 const BlogPost = ({ post }: Props) => {
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      Prism.highlightAll();
+    }
+  }, []);
+
   return (
     <Layout
       title={post.title}
