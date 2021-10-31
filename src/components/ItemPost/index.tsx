@@ -1,4 +1,6 @@
 import styles from "./styles.module.scss";
+import { parseISO, format } from "date-fns";
+import { enUS, ptBR } from "date-fns/locale";
 import Link from "next/link";
 
 type Props = {
@@ -19,13 +21,16 @@ const ItemPost = ({
   locale,
 }: Props): JSX.Element => {
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
+  const dateLocale = locale === "pt-BR" ? ptBR : enUS;
 
   return (
     <Link href={`${postLocale}/blog/${slug}`}>
       <a className={styles.itemPost}>
         <div className={styles.itemHeader}>
           <h3>{title}</h3>
-          <span>{date}</span>
+          <span>
+            {format(parseISO(date), "MMMM dd, yyyy", { locale: dateLocale })}
+          </span>
         </div>
         <p>{description}</p>
       </a>

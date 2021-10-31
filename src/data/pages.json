@@ -30,13 +30,17 @@
       "title": "Blog",
       "description": "Welcome to my world!",
       "titleContent": "This is my blog",
-      "contentPage": "TODO..."
+      "contentPage": "TODO...",
+      "noResults": "Sorry, nothing was found",
+      "search": "Search articles"
     },
     "pt-BR": {
       "title": "Blog",
       "description": "Bem vindo ao meu mundo!",
       "titleContent": "Este é meu blog",
-      "contentPage": "Em construção..."
+      "contentPage": "Em construção...",
+      "noResults": "Desculpe, não foi encontrado nada",
+      "search": "Pesquisar artigos"
     }
   },
   "aboutPage": {

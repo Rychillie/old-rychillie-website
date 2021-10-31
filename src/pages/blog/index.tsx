@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { getAllPosts } from "@lib/posts";
-import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import ItemPost from "@components/ItemPost";
 import content from "../../data/pages.json";
@@ -17,19 +17,48 @@ type Props = {
 };
 
 const Blog = ({ posts, locale }: Props) => {
+  const [searchValue, setSearchValue] = useState("");
+  const filteredBlogPosts = posts
+    .sort((a, b) => Number(new Date(b.date)) - Number(new Date(a.date)))
+    .filter((post) =>
+      post.title.toLowerCase().includes(searchValue.toLowerCase())
+    );
+
   const blogContent = content.blogPage;
 
-  const { title, description, titleContent, contentPage } =
+  const { title, description, titleContent, contentPage, noResults, search } =
     blogContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
 
   return (
     <Layout title={title} description={description} hasHeader hasFooter>
       <h1>{titleContent}</h1>
 
-      <div className={styles.postListing}>
-        {/* {contentPage} */}
+      <div className={styles.search}>
+        <input
+          aria-label="Search articles"
+          placeholder={search}
+          onChange={(e) => setSearchValue(e.target.value)}
+          type="text"
+        />
+        <svg
+          className={styles.searchIcon}
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+          />
+        </svg>
+      </div>
 
-        {posts.map((post) => (
+      <div className={styles.postListing}>
+        {!filteredBlogPosts.length && <p>{noResults}</p>}
+        {filteredBlogPosts.map((post) => (
           <ItemPost
             key={post.slug}
             title={post.title}
