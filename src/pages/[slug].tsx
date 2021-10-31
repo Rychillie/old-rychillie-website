@@ -3,7 +3,7 @@ import { getPostBySlug, getAllPosts } from "@lib/posts";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import { Params } from "next/dist/server/router";
-import styles from "../../styles/Blog.module.scss";
+import styles from "../styles/Blog.module.scss";
 
 type Props = {
   locale: "en-US" | string;
