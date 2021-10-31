@@ -12,10 +12,8 @@ type Props = {
   post: {
     title: string;
     description: string;
-    isPublished: string;
     thumbnailUrl: string;
     date: string;
-    tags: string[];
     content: string;
     slug: string;
   };

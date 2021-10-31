@@ -5,10 +5,8 @@ type Props = {
   title: string;
   slug: string;
   description: string;
-  isPublished: boolean;
   thumbnailUrl: string;
   date: string;
-  tags: string[];
   locale: "en-US" | string;
 };
 
@@ -16,10 +14,8 @@ const ItemPost = ({
   title,
   slug,
   description,
-  isPublished,
   thumbnailUrl,
   date,
-  tags,
   locale,
 }: Props): JSX.Element => {
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";

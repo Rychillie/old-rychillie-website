@@ -10,7 +10,6 @@ type Props = {
   posts: Array<{
     slug: string;
     title: string;
-    isPublished: boolean;
     description: string;
     thumbnailUrl: string;
     tags: string[];
@@ -48,7 +47,6 @@ const Blog = ({ posts, locale }: Props) => {
             title={post.title}
             slug={post.slug}
             description={post.description}
-            isPublished={post.isPublished}
             thumbnailUrl={post.thumbnailUrl}
             date={post.date}
             tags={post.tags}

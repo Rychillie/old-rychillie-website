@@ -30,10 +30,8 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        isPublished: meta.data.isPublished,
-        thumbnailUrl: meta.data.image,
         date: meta.data.date,
-        tags: meta.data.tags,
+        thumbnailUrl: meta.data.image,
       };
     })
   );
@@ -64,11 +62,9 @@ export async function getPostBySlug(
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        isPublished: meta.data.isPublished,
         thumbnailUrl: meta.data.image,
         content: meta.content,
         date: meta.data.date,
-        tags: meta.data.tags,
       };
     })
   );
