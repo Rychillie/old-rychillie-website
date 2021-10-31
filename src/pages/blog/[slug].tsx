@@ -7,6 +7,7 @@ import styles from "../../styles/Blog.module.scss";
 
 type Props = {
   locale: "en-US" | string;
+  locales: string[];
   params: {
     slug: string;
   };
@@ -31,7 +32,7 @@ export async function getStaticPaths({ locale }: Props) {
         slug: post.slug,
       },
     })),
-    fallback: false,
+    fallback: true,
   };
 }
 
@@ -49,7 +50,6 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 
 // component for generate blog post page
 const BlogPost = ({ post, locale }: Props) => {
-  console.log(post);
   return (
     <Layout
       title={post.title}
