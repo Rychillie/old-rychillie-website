@@ -72,7 +72,7 @@ const BlogPost = ({ post }: Props) => {
       <h1>{post.title}</h1>
 
       <article className={styles.article}>
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{ __html: post.content }}></div>
       </article>
     </Layout>
   );

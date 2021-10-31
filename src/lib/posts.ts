@@ -30,8 +30,8 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        date: meta.data.date,
         thumbnailUrl: meta.data.image,
+        date: meta.data.date,
       };
     })
   );
@@ -57,7 +57,6 @@ export async function getPostBySlug(
       const fullPath = path.resolve(file);
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
-
       const content = marked(meta.content);
 
       return {
