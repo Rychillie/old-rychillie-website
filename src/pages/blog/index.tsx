@@ -12,21 +12,9 @@ type Props = {
     title: string;
     description: string;
     thumbnailUrl: string;
-    tags: string[];
     date: string;
   }>;
 };
-
-export async function getStaticProps({ locale }: { locale: string }) {
-  const posts = await getAllPosts({ locale });
-
-  return {
-    props: {
-      locale,
-      posts,
-    },
-  };
-}
 
 const Blog = ({ posts, locale }: Props) => {
   const blogContent = content.blogPage;
@@ -49,7 +37,6 @@ const Blog = ({ posts, locale }: Props) => {
             description={post.description}
             thumbnailUrl={post.thumbnailUrl}
             date={post.date}
-            tags={post.tags}
             locale={locale}
           />
         ))}
@@ -59,3 +46,14 @@ const Blog = ({ posts, locale }: Props) => {
 };
 
 export default Blog;
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const posts = await getAllPosts({ locale });
+
+  return {
+    props: {
+      locale,
+      posts,
+    },
+  };
+}
