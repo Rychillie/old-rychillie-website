@@ -1,6 +1,4 @@
-import { GetStaticProps, GetStaticPaths } from "next";
 import { getPostBySlug, getAllPosts } from "@lib/posts";
-import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import { Params } from "next/dist/server/router";
 import styles from "../styles/Blog.module.scss";
@@ -23,16 +21,24 @@ type Props = {
   };
 };
 
-export async function getStaticPaths({ locale }: Props) {
-  const posts = await getAllPosts({ locale });
+// get all posts by locale and return path slug of pos
+export async function getStaticPaths() {
+  const enPosts = await getAllPosts({ locale: "en-US" });
+  const ptPosts = await getAllPosts({ locale: "pt-BR" });
+
+  const enPaths = enPosts.map((post) => ({
+    params: { slug: post.slug },
+    locale: "en-US",
+  }));
+
+  const ptPaths = ptPosts.map((post) => ({
+    params: { slug: post.slug },
+    locale: "pt-BR",
+  }));
 
   return {
-    paths: posts.map((post) => ({
-      params: {
-        slug: post.slug,
-      },
-    })),
-    fallback: true,
+    paths: enPaths.concat(ptPaths),
+    fallback: false,
   };
 }
 
@@ -49,7 +55,7 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 }
 
 // component for generate blog post page
-const BlogPost = ({ post, locale }: Props) => {
+const BlogPost = ({ post }: Props) => {
   return (
     <Layout
       title={post.title}
