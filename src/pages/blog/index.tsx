@@ -2,8 +2,8 @@ import { getAllPosts } from "@lib/posts";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import ItemPost from "@components/ItemPost";
-import content from "../data/pages.json";
-import styles from "../styles/Blog.module.scss";
+import content from "../../data/pages.json";
+import styles from "../../styles/Blog.module.scss";
 
 type Props = {
   locale: string;

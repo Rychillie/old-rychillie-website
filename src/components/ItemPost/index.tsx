@@ -25,7 +25,7 @@ const ItemPost = ({
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
 
   return (
-    <Link href={`${postLocale}/${slug}`}>
+    <Link href={`${postLocale}/blog/${slug}`}>
       <a className={styles.itemPost}>
         <div className={styles.itemHeader}>
           <h3>{title}</h3>
