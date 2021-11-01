@@ -33,12 +33,10 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <DefaultSeo
         titleTemplate="%s - Rychillie.net"
         openGraph={{
+          title: "Future IOS Developer",
           description:
             "O website pessoal de Rychillie Umpierre de Oliveira, desenvolvedor.",
           site_name: "Rychillie | rychillie.net",
-          url,
-          title: "Open Graph Title",
-          locale,
           images: [
             {
               url: "https://rychillie.net/images/rychillie.png",
@@ -48,6 +46,8 @@ function MyApp({ Component, pageProps, router }: AppProps) {
               type: "image/png",
             },
           ],
+          locale,
+          url,
         }}
         twitter={{
           handle: "@rychillie",
