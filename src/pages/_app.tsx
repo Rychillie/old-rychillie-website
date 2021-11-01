@@ -52,7 +52,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         twitter={{
           handle: "@rychillie",
           site: "@rychillie",
-          cardType: "summary_large_image",
+          cardType: "summary",
         }}
         canonical={url}
       />
