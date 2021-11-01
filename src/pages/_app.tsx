@@ -12,6 +12,8 @@ import Analytics from "@components/Analytics";
 function MyApp({ Component, pageProps, router }: AppProps) {
   const url = `https://rychillie.net${router.route}`;
   const myRouter = useRouter();
+  const pageLocale = useRouter();
+  const locale = pageLocale ? "pt-BR" : "en-US";
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -31,13 +33,26 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <DefaultSeo
         titleTemplate="%s - Rychillie.net"
         openGraph={{
-          type: "website",
-          locale: "pt-Br",
-          url,
           description:
             "O website pessoal de Rychillie Umpierre de Oliveira, desenvolvedor.",
           site_name: "Rychillie | rychillie.net",
-          images: [],
+          url,
+          title: "Open Graph Title",
+          locale,
+          images: [
+            {
+              url: "https://rychillie.net/images/rychillie.png",
+              width: 800,
+              height: 800,
+              alt: "Rychillie",
+              type: "image/png",
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@rychillie",
+          site: "@rychillie",
+          cardType: "summary_large_image",
         }}
         canonical={url}
       />
