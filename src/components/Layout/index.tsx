@@ -61,8 +61,8 @@ const Layout = ({
       className={`${styles.main} ${center && styles.center}`}
     >
       {children}
-      {hasNewsletter && <Newsletter />}
     </motion.main>
+    {hasNewsletter && <Newsletter />}
     {hasFooter && <Footer />}
   </>
 );
