@@ -70,6 +70,7 @@ const BlogPost = ({ post, locale }: Props) => {
       description={post.description}
       locale={pageLocale}
       hasHeader
+      hasNewsletter
       hasFooter
     >
       <h1>{post.title}</h1>

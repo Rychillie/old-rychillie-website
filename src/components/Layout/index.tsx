@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import styles from "./styles.module.scss";
 import Header from "@components/Header";
 import Footer from "@components/Footer";
+import Newsletter from "@components/Newsletter";
 
 type Props = {
   children: ReactNode;
@@ -11,6 +12,7 @@ type Props = {
   description: string;
   hasHeader?: boolean | false;
   hasFooter?: boolean | false;
+  hasNewsletter?: boolean | false;
   center?: boolean | false;
   locale?: string | undefined;
 };
@@ -38,6 +40,7 @@ const Layout = ({
   title,
   description,
   hasHeader,
+  hasNewsletter,
   hasFooter,
   center,
   locale,
@@ -58,6 +61,7 @@ const Layout = ({
       className={`${styles.main} ${center && styles.center}`}
     >
       {children}
+      {hasNewsletter && <Newsletter />}
     </motion.main>
     {hasFooter && <Footer />}
   </>

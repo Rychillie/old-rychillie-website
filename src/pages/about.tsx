@@ -17,6 +17,7 @@ const Sobre: NextPage = () => {
       description={description}
       locale={pageLocale}
       hasHeader
+      hasNewsletter
       hasFooter
     >
       <h1>{titleContent}</h1>
