@@ -1,0 +1,32 @@
+{
+  "navigation": {
+    "en-US": {
+      "blog": {
+        "name": "Blog",
+        "href": "/blog"
+      },
+      "work": {
+        "name": "Work",
+        "href": "/work"
+      },
+      "about": {
+        "name": "About",
+        "href": "/about"
+      }
+    },
+    "pt-BR": {
+      "blog": {
+        "name": "Blog",
+        "href": "/blog"
+      },
+      "work": {
+        "name": "Portfólio",
+        "href": "/work"
+      },
+      "about": {
+        "name": "Sobre",
+        "href": "/about"
+      }
+    }
+  }
+}
