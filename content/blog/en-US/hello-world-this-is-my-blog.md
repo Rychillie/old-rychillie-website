@@ -1,7 +1,7 @@
 ---
 title: "Hello World, this is my blog!"
 description: "Discover my space to share work, studies, knowledge and mark my presence on the web in a way that makes a difference for people."
-date: "2020-09-29"
+date: "2021-09-29"
 image: ""
 tags:
   - "blog"
