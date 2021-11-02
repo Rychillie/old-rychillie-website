@@ -28,5 +28,119 @@
         "href": "/about"
       }
     ]
+  },
+  "footer": {
+    "en-US": {
+      "pages": [
+        {
+          "name": "Home",
+          "href": "/"
+        },
+        {
+          "name": "Blog",
+          "href": "/blog"
+        },
+        {
+          "name": "Work",
+          "href": "/work"
+        },
+        {
+          "name": "About",
+          "href": "/about"
+        }
+      ],
+      "social": [
+        {
+          "name": "Twiiter",
+          "href": "https://twitter.com/rychillie"
+        },
+        {
+          "name": "Instagram",
+          "href": "https://instagram.com/rychillie"
+        },
+        {
+          "name": "Github",
+          "href": "https://github.com/rychillie"
+        },
+        {
+          "name": "Linkedin",
+          "href": "https://linkedin.com/in/rychillie"
+        }
+      ],
+      "extra": [
+        {
+          "name": "Uses",
+          "href": "/uses"
+        },
+        {
+          "name": "Links",
+          "href": "/links"
+        },
+        {
+          "name": "Newsletter",
+          "href": "/newsletter"
+        },
+        {
+          "name": "Promo",
+          "href": "/promo"
+        }
+      ]
+    },
+    "pt-BR": {
+      "pages": [
+        {
+          "name": "Início",
+          "href": "/"
+        },
+        {
+          "name": "Blog",
+          "href": "/blog"
+        },
+        {
+          "name": "Portfólio",
+          "href": "/work"
+        },
+        {
+          "name": "Sobre",
+          "href": "/about"
+        }
+      ],
+      "social": [
+        {
+          "name": "Twiiter",
+          "href": "https://twitter.com/rychillie"
+        },
+        {
+          "name": "Instagram",
+          "href": "https://instagram.com/rychillie"
+        },
+        {
+          "name": "Github",
+          "href": "https://github.com/rychillie"
+        },
+        {
+          "name": "Linkedin",
+          "href": "https://linkedin.com/in/rychillie"
+        }
+      ],
+      "extra": [
+        {
+          "name": "Uses",
+          "href": "/uses"
+        },
+        {
+          "name": "Links",
+          "href": "/links"
+        },
+        {
+          "name": "Newsletter",
+          "href": "/newsletter"
+        },
+        {
+          "name": "Promo",
+          "href": "/promo"
+        }
+      ]
+    }
   }
 }
