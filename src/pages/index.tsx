@@ -12,6 +12,7 @@ const Home: NextPage = () => {
 
   const homeContent = content.homePage;
   const { locale } = router;
+  const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
   const {
     title,
     description,
@@ -22,10 +23,10 @@ const Home: NextPage = () => {
     myWork,
     littleMore,
     aboutMe,
-  } = homeContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
+  } = homeContent[pageLocale];
 
   return (
-    <Layout title={title} description={description} center>
+    <Layout title={title} description={description} locale={pageLocale} center>
       <h1>{titleContent}</h1>
       <p>
         {synopsis} <Link href="/blog">{blog}</Link>, {know}{" "}

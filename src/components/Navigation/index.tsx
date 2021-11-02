@@ -1,23 +1,16 @@
 import { AnimateSharedLayout } from "framer-motion";
 import styles from "./styles.module.scss";
 import Link from "@components/NoScrollLink";
+import content from "../../data/components.json";
 
-const links: { name: string; href: string }[] = [
-  {
-    name: "Blog",
-    href: "/blog",
-  },
-  {
-    name: "Work",
-    href: "/work",
-  },
-  {
-    name: "About",
-    href: "/about",
-  },
-];
+type Props = {
+  locale?: string | undefined;
+};
 
-const Navigation = (): JSX.Element => {
+const Navigation = ({ locale }: Props): JSX.Element => {
+  const localeContent = locale === "pt-BR" ? "pt-BR" : "en-US";
+  const links = content.navigation[localeContent];
+
   return (
     <AnimateSharedLayout>
       <nav className={styles.navigation}>

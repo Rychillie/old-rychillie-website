@@ -25,12 +25,19 @@ const Blog = ({ posts, locale }: Props) => {
     );
 
   const blogContent = content.blogPage;
+  const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
 
   const { title, description, titleContent, contentPage, noResults, search } =
-    blogContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
+    blogContent[pageLocale];
 
   return (
-    <Layout title={title} description={description} hasHeader hasFooter>
+    <Layout
+      title={title}
+      description={description}
+      locale={pageLocale}
+      hasHeader
+      hasFooter
+    >
       <h1>{titleContent}</h1>
 
       <div className={styles.search}>

@@ -7,11 +7,18 @@ import styles from "../styles/About.module.scss";
 const Sobre: NextPage = () => {
   const aboutContent = content.aboutPage;
   const { locale } = useRouter();
+  const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
   const { title, description, titleContent, contentPage } =
-    aboutContent[locale === "pt-BR" ? "pt-BR" : "en-US"];
+    aboutContent[pageLocale];
 
   return (
-    <Layout title={title} description={description} hasHeader hasFooter>
+    <Layout
+      title={title}
+      description={description}
+      locale={pageLocale}
+      hasHeader
+      hasFooter
+    >
       <h1>{titleContent}</h1>
 
       <div>

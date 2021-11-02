@@ -55,7 +55,9 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 }
 
 // component for generate blog post page
-const BlogPost = ({ post }: Props) => {
+const BlogPost = ({ post, locale }: Props) => {
+  const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       Prism.highlightAll();
@@ -66,6 +68,7 @@ const BlogPost = ({ post }: Props) => {
     <Layout
       title={post.title}
       description={post.description}
+      locale={pageLocale}
       hasHeader
       hasFooter
     >

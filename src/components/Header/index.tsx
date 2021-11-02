@@ -3,7 +3,11 @@ import styles from "./styles.module.scss";
 import Link from "next/link";
 import Navigation from "@components/Navigation";
 
-const Header = (): JSX.Element => {
+type Props = {
+  locale?: string | undefined;
+};
+
+const Header = ({ locale }: Props): JSX.Element => {
   return (
     <header className={styles.header}>
       <Link href="/">
@@ -12,7 +16,7 @@ const Header = (): JSX.Element => {
         </a>
       </Link>
 
-      <Navigation />
+      <Navigation locale={locale} />
     </header>
   );
 };

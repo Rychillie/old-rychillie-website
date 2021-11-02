@@ -12,6 +12,7 @@ type Props = {
   hasHeader?: boolean | false;
   hasFooter?: boolean | false;
   center?: boolean | false;
+  locale?: string | undefined;
 };
 
 const variants = {
@@ -39,6 +40,7 @@ const Layout = ({
   hasHeader,
   hasFooter,
   center,
+  locale,
 }: Props): JSX.Element => (
   <>
     <NextSeo
@@ -46,7 +48,7 @@ const Layout = ({
       description={description}
       openGraph={{ title, description }}
     />
-    {hasHeader && <Header />}
+    {hasHeader && <Header locale={locale} />}
     <motion.main
       initial="hidden"
       animate="enter"
