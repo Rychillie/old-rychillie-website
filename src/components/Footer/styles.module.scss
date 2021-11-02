@@ -13,14 +13,19 @@
 
   .side {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: flex-start;
-    width: fit-content;
+    justify-content: space-between;
+    width: 100%;
 
     .list {
       display: flex;
       flex-direction: column;
       width: 120px;
+
+      @media (max-width: 420px) {
+        width: fit-content;
+      }
 
       a {
         color: $secondary;
@@ -30,6 +35,18 @@
 
         &:hover {
           opacity: 0.72;
+        }
+      }
+
+      &:first-child {
+        a {
+          padding-left: 0;
+        }
+      }
+
+      &:last-child {
+        a {
+          padding-right: 0;
         }
       }
     }
