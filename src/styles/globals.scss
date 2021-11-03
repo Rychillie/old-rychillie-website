@@ -38,38 +38,41 @@ h5,
 h6 {
   color: $primary;
   margin-bottom: 1.2rem;
+  line-height: 2;
   font-weight: bold;
 }
 
 h1 {
-  font-size: 1.56rem;
-}
-
-h2 {
   font-size: 1.48rem;
 }
 
+h2 {
+  font-size: 1.56rem;
+}
+
 h3 {
-  font-size: 1.4rem;
+  font-size: 1.48rem;
 }
 
 h4 {
-  font-size: 1.32rem;
+  font-size: 1.4rem;
 }
 
 h5 {
-  font-size: 1.24rem;
+  font-size: 1.32rem;
 }
 
 h6 {
-  font-size: 1.2rem;
+  font-size: 1.24rem;
 }
 
 p {
   color: $secondary;
   margin-bottom: 1rem;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  font-weight: 500;
+  letter-spacing: 0.01rem;
 
   &:last-child {
     margin-bottom: 0;

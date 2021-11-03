@@ -80,6 +80,16 @@
   }
 
   p {
+    line-height: 2rem;
+    color: transparent;
+    background-clip: text;
+    background-attachment: fixed;
+    --tw-gradient-to: rgb(24, 25, 32, 1);
+    --tw-gradient-stops: var(--tw-gradient-from), rgb(205, 205, 211, 1),
+      var(--tw-gradient-to, hsla(0, 0%, 100%, 0));
+    --tw-gradient-from: rgb(172, 173, 182, 1);
+    background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+
     code {
       display: inline-block;
       width: fit-content;
