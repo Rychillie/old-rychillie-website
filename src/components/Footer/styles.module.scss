@@ -27,6 +27,24 @@
         width: fit-content;
       }
 
+      @media (max-width: 768px) {
+        a {
+          text-align: center;
+        }
+
+        &:first-child {
+          a {
+            text-align: left;
+          }
+        }
+
+        &:last-child {
+          a {
+            text-align: right;
+          }
+        }
+      }
+
       a {
         color: $secondary;
         font-size: 16px;
