@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import content from "../data/pages.json";
+import Image from "next/image";
 import styles from "../styles/About.module.scss";
 
 const Sobre: NextPage = () => {
@@ -22,8 +23,22 @@ const Sobre: NextPage = () => {
     >
       <h1>{titleContent}</h1>
 
+      <Image
+        src={"/images/home-office.png"}
+        blurDataURL="/images/home-office.png"
+        placeholder="blur"
+        quality={100}
+        width={3840}
+        height={2160}
+        layout="intrinsic"
+        alt="home-office"
+      />
+
+      <br />
+      <br />
+
       <div>
-        <p>{contentPage}</p>
+        <p dangerouslySetInnerHTML={{ __html: contentPage }}></p>
       </div>
     </Layout>
   );
