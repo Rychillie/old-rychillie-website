@@ -53,7 +53,7 @@ const Newsletter = ({ locale }: NewsletterProps) => {
             </div>
           </form>
           <div className={styles.revueFormFooter}>
-            {privacyStart}
+            {privacyStart}{" "}
             <a
               target="_blank"
               href="https://www.getrevue.co/terms"
@@ -61,7 +61,7 @@ const Newsletter = ({ locale }: NewsletterProps) => {
             >
               {privacyTerms}
             </a>{" "}
-            {privacyMiddle}
+            {privacyMiddle}{" "}
             <a
               target="_blank"
               href="https://www.getrevue.co/privacy"
