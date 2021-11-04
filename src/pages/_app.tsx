@@ -30,6 +30,12 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <Head>
         <link rel="icon" type="image/png" href="/favicon.ico" />
         <meta name="theme-color" content="#151515" />
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`Rychillie's blog feed`}
+          href="/feed.xml"
+        />
       </Head>
       <DefaultSeo
         titleTemplate="%s - Rychillie.net"

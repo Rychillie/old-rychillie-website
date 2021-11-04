@@ -19,3 +19,18 @@ module.exports = {
     defaultLocale: "en-US",
   },
 };
+
+module.exports = {
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && isServer) {
+      const originalEntry = config.entry;
+
+      config.entry = async () => {
+        const entries = await originalEntry();
+        return { ...entries, "scripts/rss-generate": "./src/lib/rss.ts" };
+      };
+    }
+
+    return config;
+  },
+};
