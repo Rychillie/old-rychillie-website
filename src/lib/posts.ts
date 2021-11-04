@@ -74,3 +74,38 @@ export async function getPostBySlug(
 
   return post;
 }
+
+// get all posts i18n by locale
+export async function getAllPostsByLocale({
+  locale = "en-US",
+}: {
+  locale: string;
+}) {
+  // definição da pasta de armazenamento do conteúdo
+  const basePath = `./content/blog/${locale}`;
+
+  // faz a leitura dos arquivos e devolve um array com os arquivos
+  const files = await glob(`${basePath}/*.md`);
+
+  // faz um map para arquivo por aquivo e prepara o JSON com base
+  // no conteúdo interno
+  const posts = await Promise.all(
+    files.map(async (file) => {
+      const fullPath = path.resolve(file);
+      const fileContent = await fs.readFile(fullPath, "utf8");
+      const meta = matter(fileContent);
+      const content = marked(meta.content);
+
+      return {
+        title: meta.data.title,
+        slug: path.parse(fullPath).name,
+        description: meta.data.description,
+        thumbnailUrl: meta.data.image,
+        date: meta.data.date,
+        content: content,
+      };
+    })
+  );
+
+  return posts;
+}

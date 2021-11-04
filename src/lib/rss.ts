@@ -4,13 +4,16 @@ import remark from "remark";
 import html from "remark-html";
 import emoji from "remark-emoji";
 import { Params } from "next/dist/server/router";
-import { getAllPosts, getPostBySlug } from "@lib/posts";
+import { getAllPostsByLocale } from "@lib/posts";
 import content from "../data/feed.json";
 
 const LOCALES = ["pt-BR", "en-US"];
 const SITE_URL = "https://rychillie.net";
 const authorName = "Rychillie";
 const TWITTER_USERNAME = "rychillie";
+
+const markdownToHtml = (markdown: string) =>
+  remark().use(html).use(emoji).processSync(markdown).toString();
 
 const generateRssFeed = () => {
   const author = {
@@ -38,13 +41,9 @@ const generateRssFeed = () => {
       },
       author,
     });
-    const posts = await getAllPosts({ locale });
+    const posts = await getAllPostsByLocale({ locale });
 
     (await posts).forEach((post) => {
-      const myPosts = getPostBySlug(post.slug, { locale });
-
-      console.log(myPosts);
-
       feed.addItem({
         title: post.title,
         id: `${SITE_URL}/${locale}/blog/${post.slug}`,
@@ -52,6 +51,7 @@ const generateRssFeed = () => {
         description: post.description,
         date: new Date(post.date),
         author: [author],
+        content: markdownToHtml(post.content),
         // content: myPosts.content.childMarkdownRemark.html,
       });
     });
