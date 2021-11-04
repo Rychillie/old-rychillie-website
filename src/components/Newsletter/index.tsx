@@ -1,14 +1,29 @@
 import styles from "./styles.module.scss";
+import content from "../../data/components.json";
 
-const Newsletter = () => {
+type NewsletterProps = {
+  locale?: string;
+};
+
+const Newsletter = ({ locale }: NewsletterProps) => {
+  const localeContent = locale === "pt-BR" ? "pt-BR" : "en-US";
+  const {
+    title,
+    description,
+    formName,
+    formEmail,
+    formSubmit,
+    privacyStart,
+    privacyTerms,
+    privacyMiddle,
+    privacyPolicy,
+  } = content.newsletter[localeContent];
+
   return (
     <div className={styles.container}>
       <div className={styles.newsletter}>
-        <h2>Subscribe to the newsletter</h2>
-        <p>
-          Get emails from me about web development, tech, and early access to
-          new articles.
-        </p>
+        <h2>{title}</h2>
+        <p>{description}</p>
 
         <div id="revue-embed">
           <form
@@ -19,10 +34,10 @@ const Newsletter = () => {
             target="_blank"
           >
             <div className={styles.revueFormGroup}>
-              <label htmlFor="member_email">Your email address...</label>
+              <label htmlFor="member_email">{formEmail}.</label>
               <input
                 className={styles.revueFormField}
-                placeholder="Your email address..."
+                placeholder={formEmail}
                 type="email"
                 name="member[email]"
                 id="member_email"
@@ -31,28 +46,28 @@ const Newsletter = () => {
             <div className={styles.revueFormActions}>
               <input
                 type="submit"
-                value="Subscribe"
+                value={formSubmit}
                 name="member[subscribe]"
                 id="member_submit"
               />
             </div>
           </form>
           <div className={styles.revueFormFooter}>
-            By subscribing, you agree with Revue’s{" "}
+            {privacyStart}
             <a
               target="_blank"
               href="https://www.getrevue.co/terms"
               rel="noreferrer"
             >
-              Terms of Service
+              {privacyTerms}
             </a>{" "}
-            and{" "}
+            {privacyMiddle}
             <a
               target="_blank"
               href="https://www.getrevue.co/privacy"
               rel="noreferrer"
             >
-              Privacy Policy
+              {privacyPolicy}
             </a>
             .
           </div>

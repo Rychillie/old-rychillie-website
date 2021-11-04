@@ -62,7 +62,7 @@ const Layout = ({
     >
       {children}
     </motion.main>
-    {hasNewsletter && <Newsletter />}
+    {hasNewsletter && <Newsletter locale={locale} />}
     {hasFooter && <Footer />}
   </>
 );
