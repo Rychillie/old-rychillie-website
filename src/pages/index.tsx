@@ -1,3 +1,4 @@
+import fs from "fs";
 import type { NextPage } from "next";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -6,6 +7,8 @@ import Layout from "@components/Layout";
 import SocialList from "@components/SocialList";
 import content from "../data/pages.json";
 import styles from "../styles/Home.module.scss";
+import { getAllPostsByLocale } from "@lib/posts";
+import { generateRssFeed } from "@lib/rss";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -54,3 +57,20 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps({ locale }: { locale: string }) {
+  const posts = await getAllPostsByLocale({ locale });
+  const filteredPosts = posts.sort(
+    (a, b) => Number(new Date(b.date)) - Number(new Date(a.date))
+  );
+  const rss = generateRssFeed();
+
+  // fs.writeFileSync("./public/rss.xml", rss);
+
+  return {
+    props: {
+      locale,
+      posts,
+    },
+  };
+}

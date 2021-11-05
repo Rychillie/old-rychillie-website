@@ -3,56 +3,60 @@ import { Feed } from "feed";
 import remark from "remark";
 import html from "remark-html";
 import emoji from "remark-emoji";
-import { Params } from "next/dist/server/router";
-import { getAllPostsByLocale } from "@lib/posts";
-import content from "../data/feed.json";
+import feedContent from "../data/feed.json";
 
-const LOCALES = ["pt-BR", "en-US"];
-const SITE_URL = "https://rychillie.net";
-const authorName = "Rychillie";
-const TWITTER_USERNAME = "rychillie";
+const LOCALES = ["en", "ptBR"];
+import { getAllPostsByLocale } from "./posts";
 
-const markdownToHtml = (markdown: string) =>
+const markdownToHtml = (markdown: string): string =>
   remark().use(html).use(emoji).processSync(markdown).toString();
 
-const generateRssFeed = () => {
-  const author = {
-    name: authorName,
-    link: `https://twitter.com/${TWITTER_USERNAME}`,
-  };
-
+export const generateRssFeed = (): void => {
   LOCALES.forEach(async (lang) => {
-    const locale = lang === "pt-BR" ? "pt-BR" : "en-US";
-    const { title, description, image, favicon, copyright } =
-      content.feed[locale];
-
-    const feed = new Feed({
+    const contentLang = lang === "ptBR" ? "pt-BR" : "en-US";
+    const {
       title,
       description,
-      id: `${SITE_URL}/${lang}`,
-      link: `${SITE_URL}/${lang}`,
-      language: lang,
-      image,
-      favicon,
+      link,
+      language,
+      authorName,
+      twitterUserName,
       copyright,
-      generator: "Next.js using Feed",
+    } = feedContent.feed[contentLang];
+
+    const author = {
+      name: authorName,
+      link: `https://twitter.com/${twitterUserName}`,
+    };
+
+    // @ts-ignore
+    // https://github.com/jpmonette/feed/issues/138
+    const feed = new Feed({
+      title: authorName,
+      description: description as string,
+      id: `${link}/${contentLang}`,
+      link: `${link}/${contentLang}`,
+      language: lang,
+      copyright,
+      generator: "Next.js & Feed",
       feedLinks: {
-        rss2: `${SITE_URL}/${lang}/feed.xml`,
+        rss2: `${link}/${contentLang}/feed.xml`,
       },
       author,
     });
+    const locale = lang === "ptBR" ? "pt-BR" : "en-US";
+
     const posts = await getAllPostsByLocale({ locale });
 
-    (await posts).forEach((post) => {
+    posts.forEach((post) => {
       feed.addItem({
         title: post.title,
-        id: `${SITE_URL}/${locale}/blog/${post.slug}`,
-        link: `${SITE_URL}/${locale}/blog/${post.slug}`,
+        id: `${link}/${contentLang}/blog/${post.slug}`,
+        link: `${link}/${contentLang}/blog/${post.slug}`,
         description: post.description,
+        content: markdownToHtml(post.content),
         date: new Date(post.date),
         author: [author],
-        content: markdownToHtml(post.content),
-        // content: myPosts.content.childMarkdownRemark.html,
       });
     });
 
@@ -61,4 +65,19 @@ const generateRssFeed = () => {
   });
 };
 
-generateRssFeed();
+// generateRssFeed();
+
+// export async function generateRss(
+//   posts: {
+//     slug: string;
+//     title: string;
+//     description: string;
+//     date: string | number | Date;
+//     content: string;
+//   }[],
+//   { locale = "en-US" }: { locale: string }
+// ) {
+//   const contentLang = locale === "pt-BR" ? "pt-BR" : "en-US";
+//   const { title, description, link, language } = feedContent.feed[contentLang];
+//   console.log(posts);
+// }
