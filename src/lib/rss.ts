@@ -54,7 +54,7 @@ export const generateRssFeed = (): void => {
         id: `${link}/${contentLang}/blog/${post.slug}`,
         link: `${link}/${contentLang}/blog/${post.slug}`,
         description: post.description,
-        content: markdownToHtml(post.content),
+        content: post.content,
         date: new Date(post.date),
         author: [author],
       });
