@@ -5,7 +5,7 @@ import html from "remark-html";
 import emoji from "remark-emoji";
 import feedContent from "../data/feed.json";
 
-const LOCALES = ["en", "ptBR"];
+const LOCALES = ["en", "pt-BR"];
 import { getAllPostsByLocale } from "./posts";
 
 const markdownToHtml = (markdown: string): string =>
@@ -13,7 +13,7 @@ const markdownToHtml = (markdown: string): string =>
 
 export const generateRssFeed = (): void => {
   LOCALES.forEach(async (lang) => {
-    const contentLang = lang === "ptBR" ? "pt-BR" : "en-US";
+    const contentLang = lang === "pt-BR" ? "pt-BR" : "en-US";
     const {
       title,
       description,
@@ -41,10 +41,11 @@ export const generateRssFeed = (): void => {
       generator: "Next.js & Feed",
       feedLinks: {
         rss2: `${link}/${contentLang}/feed.xml`,
+        atomLink: `${link}/${contentLang}/feed.xml`,
       },
       author,
     });
-    const locale = lang === "ptBR" ? "pt-BR" : "en-US";
+    const locale = lang === "pt-BR" ? "pt-BR" : "en-US";
 
     const posts = await getAllPostsByLocale({ locale });
 
