@@ -41,7 +41,8 @@ export const generateRssFeed = (): void => {
       generator: "Next.js & Feed",
       feedLinks: {
         rss2: `${link}/${contentLang}/feed.xml`,
-        atomLink: `${link}/${contentLang}/feed.xml`,
+        atom: `${link}/${contentLang}/feed.xml`,
+        json: `${link}/${contentLang}/feed.json`,
       },
       author,
     });
