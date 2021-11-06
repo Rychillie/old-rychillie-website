@@ -35,4 +35,7 @@ yarn-error.log*
 
 # RSS Public folder
 /public/en
+/public/enUS
+/public/en-US
 /public/ptBR
+/public/pt-BR
