@@ -1,9 +1,13 @@
 import chrome from "chrome-aws-lambda";
 
-const chromeExecPaths = {
+interface Paths {
+  [key: string]: string;
+}
+
+const chromeExecPaths: Paths = {
   win32: "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
-  linux: "/usr/bin/google-chrome",
   darwin: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome",
+  linux: "/usr/bin/google-chrome",
 };
 
 const exePath = chromeExecPaths[process.platform];

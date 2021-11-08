@@ -58,6 +58,8 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 const BlogPost = ({ post, locale }: Props) => {
   const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
 
+  console.log(post.thumbnailUrl);
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       Prism.highlightAll();
