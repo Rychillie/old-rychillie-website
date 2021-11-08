@@ -33,7 +33,9 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
         meta.data.title
-      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
+      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}&slug=${
+        path.parse(fullPath).name
+      }&slug=${locale}`;
 
       return {
         title: meta.data.title,
@@ -70,7 +72,9 @@ export async function getPostBySlug(
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
         meta.data.title
-      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
+      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}&slug=${
+        path.parse(fullPath).name
+      }&slug=${locale}`;
 
       return {
         title: meta.data.title,

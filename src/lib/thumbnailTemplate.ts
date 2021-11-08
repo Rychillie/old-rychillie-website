@@ -1,6 +1,8 @@
 interface GetHtmlProps {
   title: string;
   thumbnail_bg?: string;
+  slug?: string;
+  locale?: string;
 }
 
 export function getHtml({ title, thumbnail_bg = "#8257e5" }: GetHtmlProps) {
