@@ -38,7 +38,7 @@ const variants = {
   },
 };
 
-const defaultImg = "https://rychillie.net/api/thumbnail.png?defaultimg";
+const defaultImg = "https://rychillie.net/api/thumbnail.png?defaultImg";
 
 const Layout = ({
   children,
