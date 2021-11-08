@@ -1,5 +1,5 @@
 import puppeteer, { Page } from "puppeteer-core";
-import { getOptions } from "./chromeOptions";
+import { getOptions } from "@lib/chromeOptions";
 
 let _page: Page | null;
 
