@@ -17,7 +17,6 @@ const Sobre: NextPage = () => {
       title={title}
       description={description}
       locale={pageLocale}
-      urlThumbnail={""}
       slug={"/about"}
       hasHeader
       hasNewsletter

@@ -41,7 +41,7 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: thumbAPI,
+        thumbnailUrl: meta.data.title,
         date: meta.data.date,
       };
     })
@@ -80,7 +80,7 @@ export async function getPostBySlug(
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: thumbAPI,
+        thumbnailUrl: meta.data.title,
         date: meta.data.date,
         content: content,
       };

@@ -35,7 +35,6 @@ const Blog = ({ posts, locale }: Props) => {
       title={title}
       description={description}
       locale={pageLocale}
-      urlThumbnail={""}
       slug={"/blog"}
       hasHeader
       hasNewsletter

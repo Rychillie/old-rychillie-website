@@ -33,7 +33,6 @@ const Home: NextPage = () => {
       title={title}
       description={description}
       locale={pageLocale}
-      urlThumbnail={"/images/rychillie.png"}
       slug={""}
       center
     >

@@ -17,7 +17,6 @@ const Home: NextPage = () => {
       title={title}
       description={description}
       locale={pageLocale}
-      urlThumbnail={""}
       slug={"/404"}
       center
     >

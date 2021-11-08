@@ -70,7 +70,6 @@ const BlogPost = ({ post, locale }: Props) => {
     <Layout
       title={post.title}
       description={post.description}
-      urlThumbnail={post.thumbnailUrl}
       slug={post.slug}
       locale={pageLocale}
       hasHeader
