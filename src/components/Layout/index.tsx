@@ -58,11 +58,24 @@ const Layout = ({
       openGraph={{
         title: title,
         description: description,
+        locale: `${locale === "pt-BR" ? "pt_BR" : "en_US"}`,
         images: [
-          { url: `${urlThumbnail}`, width: 1200, height: 630, alt: `${title}` },
+          {
+            url: `${urlThumbnail}`,
+            width: 1200,
+            height: 630,
+            alt: `${title}`,
+            type: "image/png",
+          },
         ],
+        site_name: "🦄 Rychillie",
       }}
       canonical={`${path}${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}
+      twitter={{
+        handle: "@rychillie",
+        site: "@rychillie",
+        cardType: "summary_large_image",
+      }}
     />
     {hasHeader && <Header locale={locale} />}
     <motion.main
