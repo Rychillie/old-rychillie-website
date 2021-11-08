@@ -5,7 +5,14 @@ interface GetHtmlProps {
   locale?: string;
 }
 
-export function getHtml({ title, thumbnail_bg = "#8257e5" }: GetHtmlProps) {
+const basePath = "https://rychillie.net/";
+
+export function getHtml({
+  title,
+  thumbnail_bg = "#8257e5",
+  slug,
+  locale,
+}: GetHtmlProps) {
   return `<!DOCTYPE html>
 <html lang="en">
   <head>
@@ -51,6 +58,7 @@ export function getHtml({ title, thumbnail_bg = "#8257e5" }: GetHtmlProps) {
   <body>
     <div id="wrapper">
       <h1>${title}</h1>
+      <h2>${`${basePath}/${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}</h2>
     </div>
   </body>
 </html>
