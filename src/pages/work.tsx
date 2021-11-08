@@ -8,6 +8,10 @@ const Portfolio: NextPage = () => {
   const workContent = content.workPage;
   const { locale } = useRouter();
   const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
+
+  const baseURL = "rychillie.net";
+  const linkURL =
+    locale === "pt-BR" ? `${baseURL}/pt-BR/work` : `${baseURL}/work`;
   const { title, description, titleContent, contentPage } =
     workContent[pageLocale];
 
@@ -16,7 +20,7 @@ const Portfolio: NextPage = () => {
       title={title}
       description={description}
       locale={pageLocale}
-      slug={"/work"}
+      canonicalUrl={linkURL}
       hasHeader
       hasNewsletter
       hasFooter

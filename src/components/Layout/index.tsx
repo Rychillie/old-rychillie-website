@@ -10,7 +10,8 @@ type Props = {
   children: ReactNode;
   title: string;
   description: string;
-  slug: string;
+  slug?: string;
+  canonicalUrl?: string;
   urlThumbnail?: string;
   hasHeader?: boolean | false;
   hasFooter?: boolean | false;
@@ -45,6 +46,7 @@ const Layout = ({
   description,
   urlThumbnail,
   slug,
+  canonicalUrl,
   hasHeader,
   hasNewsletter,
   hasFooter,
@@ -70,7 +72,7 @@ const Layout = ({
         ],
         site_name: "🦄 Rychillie",
       }}
-      canonical={`${path}${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}
+      canonical={canonicalUrl}
       twitter={{
         handle: "@rychillie",
         site: "@rychillie",

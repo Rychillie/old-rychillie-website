@@ -12,12 +12,16 @@ const Home: NextPage = () => {
   const { title, description, titleContent, contentPage, linkHome } =
     errorContent[pageLocale];
 
+  const baseURL = "rychillie.net";
+  const linkURL =
+    locale === "pt-BR" ? `${baseURL}/pt-BR/404` : `${baseURL}/404`;
+
   return (
     <Layout
       title={title}
       description={description}
       locale={pageLocale}
-      slug={"/404"}
+      canonicalUrl={linkURL}
       center
     >
       <h1>{titleContent}</h1>

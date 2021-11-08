@@ -58,6 +58,12 @@ export async function getStaticProps({ locale, params }: Props & Params) {
 const BlogPost = ({ post, locale }: Props) => {
   const pageLocale = locale === "pt-BR" ? "pt-BR" : "en-US";
 
+  const baseURL = "rychillie.net";
+  const linkURL =
+    locale === "pt-BR"
+      ? `${baseURL}/pt-BR/${post.slug}`
+      : `${baseURL}/${post.slug}`;
+
   useEffect(() => {
     if (typeof window !== "undefined") {
       Prism.highlightAll();
@@ -69,6 +75,7 @@ const BlogPost = ({ post, locale }: Props) => {
       title={post.title}
       description={post.description}
       urlThumbnail={post.thumbnailUrl}
+      canonicalUrl={linkURL}
       slug={post.slug}
       locale={pageLocale}
       hasHeader

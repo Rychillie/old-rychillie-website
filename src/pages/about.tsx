@@ -12,12 +12,16 @@ const Sobre: NextPage = () => {
   const { title, description, titleContent, contentPage } =
     aboutContent[pageLocale];
 
+  const baseURL = "rychillie.net";
+  const linkURL =
+    locale === "pt-BR" ? `${baseURL}/pt-BR/about` : `${baseURL}/about`;
+
   return (
     <Layout
       title={title}
       description={description}
       locale={pageLocale}
-      slug={"/about"}
+      canonicalUrl={linkURL}
       hasHeader
       hasNewsletter
       hasFooter

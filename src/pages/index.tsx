@@ -28,12 +28,15 @@ const Home: NextPage = () => {
     aboutMe,
   } = homeContent[pageLocale];
 
+  const baseURL = "rychillie.net";
+  const linkURL = locale === "pt-BR" ? `${baseURL}/pt-BR/` : `${baseURL}/`;
+
   return (
     <Layout
       title={title}
       description={description}
       locale={pageLocale}
-      slug={""}
+      canonicalUrl={linkURL}
       center
     >
       <h1>{titleContent}</h1>

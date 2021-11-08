@@ -30,12 +30,16 @@ const Blog = ({ posts, locale }: Props) => {
   const { title, description, titleContent, contentPage, noResults, search } =
     blogContent[pageLocale];
 
+  const baseURL = "rychillie.net";
+  const linkURL =
+    locale === "pt-BR" ? `${baseURL}/pt-BR/blog` : `${baseURL}/blog`;
+
   return (
     <Layout
       title={title}
       description={description}
       locale={pageLocale}
-      slug={"/blog"}
+      canonicalUrl={linkURL}
       hasHeader
       hasNewsletter
       hasFooter
