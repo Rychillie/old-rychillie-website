@@ -33,15 +33,13 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
         meta.data.title
-      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}&slug=${
-        path.parse(fullPath).name
-      }&slug=${locale}`;
+      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: meta.data.title,
+        thumbnailUrl: thumbAPI,
         date: meta.data.date,
       };
     })
@@ -72,15 +70,13 @@ export async function getPostBySlug(
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
         meta.data.title
-      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}&slug=${
-        path.parse(fullPath).name
-      }&slug=${locale}`;
+      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: meta.data.title,
+        thumbnailUrl: thumbAPI,
         date: meta.data.date,
         content: content,
       };
@@ -115,15 +111,13 @@ export async function getAllPostsByLocale({
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
         meta.data.title
-      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}&slug=${
-        path.parse(fullPath).name
-      }&slug=${locale}`;
+      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: meta.data.image,
+        thumbnailUrl: thumbAPI,
         date: meta.data.date,
         content: content,
       };

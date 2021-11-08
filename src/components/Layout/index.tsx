@@ -11,6 +11,7 @@ type Props = {
   title: string;
   description: string;
   slug: string;
+  urlThumbnail?: string;
   hasHeader?: boolean | false;
   hasFooter?: boolean | false;
   hasNewsletter?: boolean | false;
@@ -42,6 +43,7 @@ const Layout = ({
   children,
   title,
   description,
+  urlThumbnail,
   slug,
   hasHeader,
   hasNewsletter,
@@ -57,7 +59,7 @@ const Layout = ({
         title: title,
         description: description,
         images: [
-          // { url: `${urlThumbnail}`, width: 1200, height: 630, alt: `${title}` },
+          { url: `${urlThumbnail}`, width: 1200, height: 630, alt: `${title}` },
         ],
       }}
       canonical={`${path}${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}

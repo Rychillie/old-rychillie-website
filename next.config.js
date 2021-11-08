@@ -7,11 +7,14 @@ module.exports = withSass({
 });
 
 module.exports = {
-  reactStrictMode: true,
   images: {
     domains: ["rychillie.net", "localhost"],
   },
+  async rewrites() {
+    return [{ source: "/api/thumbnail.png", destination: "/api/thumbnail" }];
+  },
   target: "serverless",
+  reactStrictMode: true,
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
