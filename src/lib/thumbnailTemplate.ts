@@ -58,9 +58,10 @@ export function getHtml({
   <body>
     <div id="wrapper">
       <h1>${title}</h1>
-      <h2>${`${basePath}/${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}</h2>
     </div>
   </body>
 </html>
 `;
 }
+
+// <h2>${`${basePath}/${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}</h2>
