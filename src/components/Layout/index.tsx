@@ -54,8 +54,8 @@ const Layout = ({
       title={title}
       description={description}
       openGraph={{
-        title,
-        description,
+        title: title,
+        description: description,
         images: [
           // { url: `${urlThumbnail}`, width: 1200, height: 630, alt: `${title}` },
         ],
