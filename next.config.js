@@ -7,12 +7,19 @@ module.exports = withSass({
 });
 
 module.exports = {
+  reactStrictMode: true,
+  images: {
+    domains: ["rychillie.net", "localhost"],
+  },
+  target: "serverless",
+  webpack: function (config) {
+    config.module.rules.push({ test: /\.md$/, use: "raw-loader" });
+
+    return config;
+  },
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
-};
-
-module.exports = {
   i18n: {
     localeDetection: true,
     locales: ["en-US", "pt-BR"],

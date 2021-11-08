@@ -15,14 +15,12 @@ export default async (
 
     const title = String(query.title);
     const thumbnail_bg = String(query.thumbnail_bg);
-    const slug = String(query.slug);
-    const locale = String(query.locale);
 
     if (!title) {
       throw new Error("Title is required");
     }
 
-    const html = getHtml({ title, thumbnail_bg, slug, locale });
+    const html = getHtml({ title, thumbnail_bg });
 
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
