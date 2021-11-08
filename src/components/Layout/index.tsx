@@ -10,6 +10,8 @@ type Props = {
   children: ReactNode;
   title: string;
   description: string;
+  urlThumbnail: string;
+  slug: string;
   hasHeader?: boolean | false;
   hasFooter?: boolean | false;
   hasNewsletter?: boolean | false;
@@ -35,10 +37,14 @@ const variants = {
   },
 };
 
+const path = "https://rychillie.net/";
+
 const Layout = ({
   children,
   title,
   description,
+  urlThumbnail,
+  slug,
   hasHeader,
   hasNewsletter,
   hasFooter,
@@ -49,7 +55,14 @@ const Layout = ({
     <NextSeo
       title={title}
       description={description}
-      openGraph={{ title, description }}
+      openGraph={{
+        title,
+        description,
+        images: [
+          { url: `${urlThumbnail}`, width: 1200, height: 630, alt: `${title}` },
+        ],
+      }}
+      canonical={`${path}${locale === "pt-BR" ? "pt-BR/" : ""}${slug}`}
     />
     {hasHeader && <Header locale={locale} />}
     <motion.main
