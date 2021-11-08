@@ -45,7 +45,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
             "O website pessoal de Rychillie Umpierre de Oliveira, desenvolvedor.",
           images: [
             {
-              url: "http://localhost:3000/api/thumbnail.png?imgDefault",
+              url: "http://rychillie.net/api/thumbnail.png?imgdefault",
               width: 1200,
               height: 630,
               alt: "Future IOS Developer",
