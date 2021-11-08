@@ -38,7 +38,7 @@ const variants = {
   },
 };
 
-const path = "https://rychillie.net/";
+const defaultImg = "https://rychillie.net/api/thumbnail.png?defaultimg";
 
 const Layout = ({
   children,
@@ -63,7 +63,7 @@ const Layout = ({
         locale: `${locale === "pt-BR" ? "pt_BR" : "en_US"}`,
         images: [
           {
-            url: `${urlThumbnail}`,
+            url: `${urlThumbnail ? urlThumbnail : defaultImg}`,
             width: 1200,
             height: 630,
             alt: `${title}`,

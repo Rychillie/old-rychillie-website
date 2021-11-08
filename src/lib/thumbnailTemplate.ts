@@ -10,97 +10,6 @@ type GetHtmlProps = {
 
 export function getHtml({ linkURL, title, DefaultThumb }: GetHtmlProps) {
   if (DefaultThumb) {
-    return `<head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Thumbnail</title>
-      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400@700&display=swap" rel="stylesheet">
-      <style>
-        * {
-          box-sizing: border-box;
-        }
-
-        body,
-        html {
-          margin: 0;
-          font-family: Inter, sans-serif;
-          color: #949495;
-          background: #151515;
-          background-image: radial-gradient(circle at 25px 25px,
-              #333333 2%,
-              transparent 0%),
-            radial-gradient(circle at 75px 75px, #333333 2%, transparent 0%);
-          background-size: 100px 100px;
-          max-height: 100%;
-          height: 100%;
-          flex: 1;
-        }
-
-        .container {
-          max-height: 100%;
-          height: 100%;
-          padding: 4rem;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          max-height: 100%;
-          display: flex;
-        }
-
-        .details {
-          display: flex;
-          flex-direction: row;
-        }
-
-        .title {
-          margin: 0;
-          color: #e5e7eb;
-          font-size: 4.8rem;
-          line-height: 1;
-        }
-
-        .subtitle {
-          margin: 2.4rem 0 4.8rem;
-          color: #e5e7eb;
-          opacity: .96;
-          font-size: 2.4rem;
-          line-height: 1;
-        }
-
-        img {
-          border-radius: 9999px;
-          max-width: 120px;
-          max-height: 120px;
-          width: 100%;
-          height: 100%;
-          border: 4px solid #949495;
-          margin: 3.2rem 0 2rem;
-        }
-
-        .profileTwitter {
-          margin: 0;
-          color: #1d9bf0;
-          font-weight: 500;
-          letter-spacing: 0.032em;
-          font-size: 1.275rem;
-          line-height: 1;
-        }
-      </style>
-    </head>
-    <div class="container" style="width: 1200px;height: 630px;">
-      <img src="https://rychillie.net/images/rychillie.png" class="profileImage" alt="Rychillie" />
-      <h1 class="title">
-        rychillie.net
-      </h1>
-      <h2 class="subtitle">
-        Frontend Developer
-      </h2>
-      <p class="profileTwitter">
-        twitter.com/rychillie
-      </p>
-    </div>
-  </html>`;
-  } else {
     return `<!DOCTYPE html>
     <html lang="en">
     <head>
@@ -207,5 +116,96 @@ export function getHtml({ linkURL, title, DefaultThumb }: GetHtmlProps) {
         </div>
       </div>
     </html>`;
+  } else {
+    return `<head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Thumbnail</title>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400@700&display=swap" rel="stylesheet">
+      <style>
+        * {
+          box-sizing: border-box;
+        }
+
+        body,
+        html {
+          margin: 0;
+          font-family: Inter, sans-serif;
+          color: #949495;
+          background: #151515;
+          background-image: radial-gradient(circle at 25px 25px,
+              #333333 2%,
+              transparent 0%),
+            radial-gradient(circle at 75px 75px, #333333 2%, transparent 0%);
+          background-size: 100px 100px;
+          max-height: 100%;
+          height: 100%;
+          flex: 1;
+        }
+
+        .container {
+          max-height: 100%;
+          height: 100%;
+          padding: 4rem;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          max-height: 100%;
+          display: flex;
+        }
+
+        .details {
+          display: flex;
+          flex-direction: row;
+        }
+
+        .title {
+          margin: 0;
+          color: #e5e7eb;
+          font-size: 4.8rem;
+          line-height: 1;
+        }
+
+        .subtitle {
+          margin: 2.4rem 0 4.8rem;
+          color: #e5e7eb;
+          opacity: .96;
+          font-size: 2.4rem;
+          line-height: 1;
+        }
+
+        img {
+          border-radius: 9999px;
+          max-width: 120px;
+          max-height: 120px;
+          width: 100%;
+          height: 100%;
+          border: 4px solid #949495;
+          margin: 3.2rem 0 2rem;
+        }
+
+        .profileTwitter {
+          margin: 0;
+          color: #1d9bf0;
+          font-weight: 500;
+          letter-spacing: 0.032em;
+          font-size: 1.275rem;
+          line-height: 1;
+        }
+      </style>
+    </head>
+    <div class="container" style="width: 1200px;height: 630px;">
+      <img src="https://rychillie.net/images/rychillie.png" class="profileImage" alt="Rychillie" />
+      <h1 class="title">
+        rychillie.net
+      </h1>
+      <h2 class="subtitle">
+        Frontend Developer
+      </h2>
+      <p class="profileTwitter">
+        twitter.com/rychillie
+      </p>
+    </div>
+  </html>`;
   }
 }

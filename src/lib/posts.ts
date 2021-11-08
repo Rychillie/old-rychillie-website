@@ -31,9 +31,10 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
 
-      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
-        meta.data.title
-      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
+        / /g,
+        "%20"
+      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
@@ -68,9 +69,10 @@ export async function getPostBySlug(
       const meta = matter(fileContent);
       const content = marked(meta.content);
 
-      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
-        meta.data.title
-      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
+        / /g,
+        "%20"
+      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
@@ -109,9 +111,10 @@ export async function getAllPostsByLocale({
       const meta = matter(fileContent);
       const content = marked(meta.content);
 
-      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
-        meta.data.title
-      }&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
+        / /g,
+        "%20"
+      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
 
       return {
         title: meta.data.title,
