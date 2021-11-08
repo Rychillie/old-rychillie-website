@@ -4,6 +4,11 @@ import glob from "glob-promise";
 import path from "path";
 import { promises as fs } from "fs";
 
+const baseUrl =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:3000"
+    : "https://rychillie.net";
+
 /**
  * Faz leitura de todos os posts da pasta de acordo com a linguagem
  * passada como parâmetro.
@@ -26,11 +31,15 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
 
+      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
+        meta.data.title
+      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
+
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: meta.data.image,
+        thumbnailUrl: thumbAPI,
         date: meta.data.date,
       };
     })
@@ -59,11 +68,15 @@ export async function getPostBySlug(
       const meta = matter(fileContent);
       const content = marked(meta.content);
 
+      const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${
+        meta.data.title
+      }&thumbnail_bg=${encodeURIComponent(meta.data.thumbnail_bg)}`;
+
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
-        thumbnailUrl: meta.data.image,
+        thumbnailUrl: thumbAPI,
         date: meta.data.date,
         content: content,
       };
