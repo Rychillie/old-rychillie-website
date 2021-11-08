@@ -43,16 +43,16 @@ function MyApp({ Component, pageProps, router }: AppProps) {
           title: "Future IOS Developer",
           description:
             "O website pessoal de Rychillie Umpierre de Oliveira, desenvolvedor.",
-          site_name: "Rychillie | rychillie.net",
           images: [
             {
-              url: "https://rychillie.net/images/rychillie.png",
-              width: 800,
-              height: 800,
-              alt: "Rychillie",
+              url: "http://localhost:3000/api/thumbnail.png?imgDefault",
+              width: 1200,
+              height: 630,
+              alt: "Future IOS Developer",
               type: "image/png",
             },
           ],
+          site_name: "🦄 Rychillie",
           locale,
           url,
         }}

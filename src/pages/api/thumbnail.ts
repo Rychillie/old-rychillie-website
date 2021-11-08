@@ -15,18 +15,21 @@ export default async (
 
     const baseURL = "rychillie.net";
 
+    const imgDefault = String(query.defaultImg);
     const title = String(query.title);
     const slug = String(query.slug);
     const itemLang = String(query.lang);
     const linkURL =
       itemLang === "pt-BR" ? `${baseURL}/pt-BR/${slug}` : `${baseURL}/${slug}`;
 
+    const DefaultThumb = imgDefault ? true : false;
+
     if (!title) {
       throw new Error("Title is required");
     }
 
     //http://localhost:3000/api/thumbnail.png?title=test&slug=test&lang=pt-BR
-    const html = getHtml({ title, linkURL });
+    const html = getHtml({ title, linkURL, DefaultThumb });
 
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
