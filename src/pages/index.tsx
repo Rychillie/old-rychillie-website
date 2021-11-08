@@ -29,7 +29,14 @@ const Home: NextPage = () => {
   } = homeContent[pageLocale];
 
   return (
-    <Layout title={title} description={description} locale={pageLocale} center>
+    <Layout
+      title={title}
+      description={description}
+      locale={pageLocale}
+      urlThumbnail={"/images/rychillie.png"}
+      slug={""}
+      center
+    >
       <h1>{titleContent}</h1>
       <p>
         {synopsis} <Link href="/blog">{blog}</Link>, {know}{" "}

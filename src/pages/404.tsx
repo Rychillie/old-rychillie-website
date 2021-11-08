@@ -13,7 +13,14 @@ const Home: NextPage = () => {
     errorContent[pageLocale];
 
   return (
-    <Layout title={title} description={description} locale={pageLocale} center>
+    <Layout
+      title={title}
+      description={description}
+      locale={pageLocale}
+      urlThumbnail={""}
+      slug={"/404"}
+      center
+    >
       <h1>{titleContent}</h1>
       <p>
         {contentPage} <Link href="/">{linkHome}</Link>.

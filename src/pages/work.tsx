@@ -16,6 +16,8 @@ const Portfolio: NextPage = () => {
       title={title}
       description={description}
       locale={pageLocale}
+      urlThumbnail={""}
+      slug={"/work"}
       hasHeader
       hasNewsletter
       hasFooter
