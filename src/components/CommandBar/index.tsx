@@ -11,7 +11,7 @@ import {
 } from "kbar";
 import styles from "./styles.module.scss";
 
-export default function CommandBar(props: any) {
+export default function CommandBar(props) {
   const router = useRouter();
 
   const actions = [
@@ -40,7 +40,7 @@ export default function CommandBar(props: any) {
       keywords: "view-source",
       section: "General",
       perform: () =>
-        window.open("https://github.com/Rychillie/rychillie.net", "_blank"),
+        window.open("https://github.com/zenorocha/zenorocha.com", "_blank"),
       icon: <i className="ri-braces-line" style={iconStyle} />,
     },
     {
@@ -67,7 +67,7 @@ export default function CommandBar(props: any) {
       shortcut: ["g", "b"],
       keywords: "go-articles",
       section: "Go To",
-      perform: () => router.push("/blog"),
+      perform: () => router.push("/articles"),
       icon: <i className="ri-ball-pen-line" style={iconStyle} />,
     },
     {
@@ -76,8 +76,26 @@ export default function CommandBar(props: any) {
       shortcut: ["g", "p"],
       keywords: "go-projects",
       section: "Go To",
-      perform: () => router.push("/work"),
+      perform: () => router.push("/projects"),
       icon: <i className="ri-lightbulb-line" style={iconStyle} />,
+    },
+    {
+      id: "talks",
+      name: "Talks",
+      shortcut: ["g", "t"],
+      keywords: "go-talks",
+      section: "Go To",
+      perform: () => router.push("/talks"),
+      icon: <i className="ri-slideshow-2-line" style={iconStyle} />,
+    },
+    {
+      id: "podcasts",
+      name: "Podcasts",
+      shortcut: ["g", "c"],
+      keywords: "go-podcasts",
+      section: "Go To",
+      perform: () => router.push("/podcasts"),
+      icon: <i className="ri-mic-line" style={iconStyle} />,
     },
     {
       id: "uses",
@@ -89,12 +107,21 @@ export default function CommandBar(props: any) {
       icon: <i className="ri-computer-line" style={iconStyle} />,
     },
     {
+      id: "reminder",
+      name: "Reminder",
+      shortcut: ["g", "r"],
+      keywords: "go-reminder",
+      section: "Go To",
+      perform: () => router.push("/reminder"),
+      icon: <i className="ri-time-line" style={iconStyle} />,
+    },
+    {
       id: "github",
       name: "Github",
       shortcut: ["f", "g"],
       keywords: "go-github",
       section: "Follow",
-      perform: () => window.open("https://github.com/Rychillie", "_blank"),
+      perform: () => window.open("https://github.com/zenorocha", "_blank"),
       icon: <i className="ri-github-line" style={iconStyle} />,
     },
     {
@@ -103,7 +130,7 @@ export default function CommandBar(props: any) {
       shortcut: ["f", "t"],
       keywords: "go-twitter",
       section: "Follow",
-      perform: () => window.open("https://twitter.com/rychillie", "_blank"),
+      perform: () => window.open("https://twitter.com/zenorocha", "_blank"),
       icon: <i className="ri-twitter-line" style={iconStyle} />,
     },
     {
@@ -112,7 +139,7 @@ export default function CommandBar(props: any) {
       shortcut: ["f", "l"],
       keywords: "go-linkedin",
       section: "Follow",
-      perform: () => window.open("https://linkedin.com/in/rychillie", "_blank"),
+      perform: () => window.open("https://linkedin.com/in/zenorocha", "_blank"),
       icon: <i className="ri-linkedin-line" style={iconStyle} />,
     },
     {
@@ -121,7 +148,7 @@ export default function CommandBar(props: any) {
       shortcut: ["f", "i"],
       keywords: "go-instagram",
       section: "Follow",
-      perform: () => window.open("https://instagram.com/rychillie", "_blank"),
+      perform: () => window.open("https://instagram.com/zenorocha", "_blank"),
       icon: <i className="ri-instagram-line" style={iconStyle} />,
     },
   ];
@@ -129,7 +156,7 @@ export default function CommandBar(props: any) {
   return (
     <KBarProvider actions={actions}>
       <KBarPortal>
-        <KBarPositioner className={styles.positionrStyle}>
+        <KBarPositioner style={positionerStyle}>
           <KBarAnimator className="kbar-blur" style={animatorStyle}>
             <KBarSearch
               style={searchStyle}
@@ -149,8 +176,7 @@ function RenderResults() {
   const groups = useMatches();
   const flattened = React.useMemo(
     () =>
-      groups.reduce((acc: any, curr: any) => {
-        acc.push(curr.name);
+      groups.reduce((acc, curr) => {
         acc.push(curr.name);
         acc.push(...curr.actions);
         return acc;
@@ -165,14 +191,14 @@ function RenderResults() {
         typeof item === "string" ? (
           <div style={groupNameStyle}>{item}</div>
         ) : (
-          <ReasultItem action={item} active={active} />
+          <ResultItem action={item} active={active} />
         )
       }
     />
   );
 }
 
-const ReasultItem = ({ action, active }: any, ref: any) => {
+const ResultItem = React.forwardRef(({ action, active }, ref) => {
   return (
     <div ref={ref} style={getResultStyle(active)}>
       <div style={actionStyle}>
@@ -183,7 +209,7 @@ const ReasultItem = ({ action, active }: any, ref: any) => {
       </div>
       {action.shortcut?.length ? (
         <div style={shortcutStyle}>
-          {action.shortcut.map((shortcut: any) => (
+          {action.shortcut.map((shortcut) => (
             <kbd key={shortcut} style={kbdStyle}>
               {shortcut}
             </kbd>
@@ -192,12 +218,7 @@ const ReasultItem = ({ action, active }: any, ref: any) => {
       ) : null}
     </div>
   );
-};
-
-// const ResultItem = React.forwardRef(({ action, active }, ref) => {
-//   return (
-//   );
-// });
+});
 
 const positionerStyle = {
   position: "fixed",
@@ -208,7 +229,7 @@ const positionerStyle = {
   inset: "0px",
   padding: "14vh 0 16px",
   background: "rgba(0, 0, 0, .8)",
-} as React.CSSProperties;
+};
 
 const animatorStyle = {
   maxWidth: "600px",
@@ -216,7 +237,7 @@ const animatorStyle = {
   color: "var(--primaryColor)",
   borderRadius: "8px",
   overflow: "hidden",
-} as React.CSSProperties;
+};
 
 const searchStyle = {
   padding: "12px 16px",
@@ -228,7 +249,7 @@ const searchStyle = {
   margin: 0,
   background: "var(--commandColor)",
   color: "var(--primaryColor)",
-} as React.CSSProperties;
+};
 
 const groupNameStyle = {
   padding: "8px 16px",
@@ -236,39 +257,39 @@ const groupNameStyle = {
   textTransform: "uppercase",
   letterSpacing: "1px",
   background: "var(--commandColor)",
-} as React.CSSProperties;
+};
 
 const iconStyle = {
   fontSize: "20px",
   position: "relative",
   top: "-2px",
-} as React.CSSProperties;
+};
 
 const kbdStyle = {
   padding: "4px 8px",
   textTransform: "uppercase",
   color: "var(--secondaryColor)",
   background: "rgba(255, 255, 255, .1)",
-} as React.CSSProperties;
+};
 
 const shortcutStyle = {
   display: "grid",
   gridAutoFlow: "column",
   gap: "4px",
-} as React.CSSProperties;
+};
 
 const actionStyle = {
   display: "flex",
   gap: "8px",
   alignItems: "center",
-} as React.CSSProperties;
+};
 
 const actionRowStyle = {
   display: "flex",
   flexDirection: "column",
-} as React.CSSProperties;
+};
 
-const getResultStyle = (active: boolean) => {
+const getResultStyle = (active) => {
   return {
     padding: "12px 16px",
     background: active ? "rgba(255, 255, 255, 0.1)" : "var(--commandColor)",

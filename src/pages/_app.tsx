@@ -5,7 +5,6 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { AnimateSharedLayout } from "framer-motion";
-import CommandBar from "@components/CommandBar";
 
 import * as gtag from "@lib/gtag";
 import Analytics from "@components/Analytics";
