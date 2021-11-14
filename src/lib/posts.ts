@@ -9,22 +9,11 @@ const baseUrl =
     ? "http://localhost:3000"
     : "https://rychillie.net";
 
-/**
- * Faz leitura de todos os posts da pasta de acordo com a linguagem
- * passada como parâmetro.
- *
- * A função vai ler arquivo por aquivo e devolver o conteúdo tratado
- * em formato JSON para o componente.
- */
 export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
-  // definição da pasta de armazenamento do conteúdo
   const basePath = `./content/blog/${locale}`;
 
-  // faz a leitura dos arquivos e devolve um array com os arquivos
   const files = await glob(`${basePath}/*.md`);
 
-  // faz um map para arquivo por aquivo e prepara o JSON com base
-  // no conteúdo interno
   const posts = await Promise.all(
     files.map(async (file) => {
       const fullPath = path.resolve(file);
@@ -49,19 +38,14 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
   return posts;
 }
 
-// get post i18n by slug
 export async function getPostBySlug(
   slug: string,
   { locale = "en-US" }: { locale: string }
 ) {
-  // definição da pasta de armazenamento do conteúdo
   const basePath = `./content/blog/${locale}`;
 
-  // faz a leitura dos arquivos e devolve um array com os arquivos
   const files = await glob(`${basePath}/*.md`);
 
-  // faz um map para arquivo por aquivo e prepara o JSON com base
-  // no conteúdo interno
   const posts = await Promise.all(
     files.map(async (file) => {
       const fullPath = path.resolve(file);
@@ -90,20 +74,15 @@ export async function getPostBySlug(
   return post;
 }
 
-// get all posts i18n by locale
 export async function getAllPostsByLocale({
   locale = "en-US",
 }: {
   locale: string;
 }) {
-  // definição da pasta de armazenamento do conteúdo
   const basePath = `./content/blog/${locale}`;
 
-  // faz a leitura dos arquivos e devolve um array com os arquivos
   const files = await glob(`${basePath}/*.md`);
 
-  // faz um map para arquivo por aquivo e prepara o JSON com base
-  // no conteúdo interno
   const posts = await Promise.all(
     files.map(async (file) => {
       const fullPath = path.resolve(file);
