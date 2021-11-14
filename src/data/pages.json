@@ -90,5 +90,19 @@
       "noResults": "Desculpe, não foi encontrado nada",
       "search": "Pesquisar artigos"
     }
+  },
+  "usesPage": {
+    "en-US": {
+      "title": "Uses",
+      "description": "Find out what makes my work more productive.",
+      "titleContent": "Uses",
+      "contentPage": ""
+    },
+    "pt-BR": {
+      "title": "Uses",
+      "description": "Conheça o que fazem do meu trabalho mais produtivo.",
+      "titleContent": "Uses",
+      "contentPage": "<h2>Editores + Terminal</h2><p>Apps que me ajudam a trabalhar com código.</p><ul><li><a target='_blank' rel='noopener noreferrer' heref='https://code.visualstudio.com'>Visual Studio Code</a> basicamente meu editor de código padrão.</li><li>XCode IDE para desenvolvimento IOS e estudos de Swift e SwiftUI.</li><li><a target='_blank' rel='noopener noreferrer' heref='https://ohmyz.sh'>ZSH</a> é meu Terminal padrão.</li><li>Safari é meu navegador padrão. Google Chrome para Desenvolvimento Web.</li></ul><br/><br/><h2>Produtividade</h2><p>Apps que me auxilian na minha produtividade.</p><ul><li><a target='_blank' rel='noopener noreferrer' heref='https://sparkmailapp.com/'>Spark Mail</a> simplismente o melhor aplicativo para emails.</li><li>Para editar vetores e trabalhar com UI/UX Design, <a target='_blank' rel='noopener noreferrer' heref='https://figma.com/'>Figma</a> é minha escolha.</li><li>Sem tempo para ler?! <a target='_blank' rel='noopener noreferrer' heref='https://getpocket.com/'>Pocket</a> é o app que utilizo para salvar links e artigos para ler a qualquer momento.</li></ul><br/><br/><h2>Meu setup</h2><p>Os dispositivos que fazem do meu setup mais produtivo.</p><ul><li><a target='_blank' rel='noopener noreferrer' heref='https://amzn.to/3CrJorD'>Macbook Air M1 com 8GB de RAM e 256GB de SSD</a>, é sem duvida é o melhor notebook para <strong><em>devs</em></strong>.</li><li>Meu monitor de 27 polegadas, é o <a target='_blank' rel='noopener noreferrer' heref='https://amzn.to/39jV9Ut'>Dell P2719H</a>.</li><li>Meu smartphone é um <a target='_blank' rel='noopener noreferrer' heref='https://bit.ly/iphone12miniMgalu'>iPhone 12 Mini de 128GB</a> e sou apaixonado por ele.</li><li>Minha escrivaninha é uma Slikdesk Selectia com tampo Slikdesk Preto de 135 por 80 cm.</li><li>Meu Teclado Mecânico é um <a target='_blank' rel='noopener noreferrer' heref='https://s.click.aliexpress.com/e/_9jxOlg'>Keychron K6</a> e até o momento o meu favorito.</li><li>Meu mouse anos é um <a target='_blank' rel='noopener noreferrer' heref='https://amzn.to/3znTnMJ'>MX Master 3</a> da logitech.</li><li>Além disso Utilizo um <a target='_blank' rel='noopener noreferrer' heref='https://s.click.aliexpress.com/e/_9i5QEK'>Carregador MagSafe Baseus</a> para carregar de forma pratica meu iPhone.</li><li>De microfone minha escolha é um <a target='_blank' rel='noopener noreferrer' heref='https://amzn.to/3CorSVd'>Blue Yeti Nano</a>.</li><li>Utilizo tambem um controlador macro <a target='_blank' rel='noopener noreferrer' heref='https://amzn.to/3knjij8'>Elgato Stream Deck Mini</a>.</li></ul>"
+    }
   }
 }
