@@ -1,6 +1,7 @@
 import styles from "./styles.module.scss";
 import { parseISO, format } from "date-fns";
 import { enUS, ptBR } from "date-fns/locale";
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -10,6 +11,9 @@ type Props = {
   thumbnailUrl: string;
   date: string;
   locale: "en-US" | string;
+  notDefault?: boolean;
+  hasBanner?: boolean;
+  link?: string;
 };
 
 const ItemPost = ({
@@ -17,15 +21,50 @@ const ItemPost = ({
   slug,
   description,
   thumbnailUrl,
+  notDefault,
+  hasBanner,
+  link,
   date,
   locale,
 }: Props): JSX.Element => {
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
   const dateLocale = locale === "pt-BR" ? ptBR : enUS;
 
-  return (
-    <Link href={`${postLocale}/blog/${slug}`}>
-      <a className={styles.itemPost}>
+  console.log(link);
+
+  if (!notDefault) {
+    return (
+      <Link href={`${postLocale}/blog/${slug}`}>
+        <a className={styles.itemPost}>
+          <div className={styles.itemHeader}>
+            <h3>{title}</h3>
+            <span>
+              {format(parseISO(date), "MMMM dd, yyyy", { locale: dateLocale })}
+            </span>
+          </div>
+          <p>{description}</p>
+        </a>
+      </Link>
+    );
+  } else {
+    return (
+      <a
+        href={`${link}`}
+        target="_blank"
+        className={styles.itemPost}
+        rel="noreferrer"
+      >
+        {hasBanner ? (
+          <div className={styles.imageContainer}>
+            <Image
+              src={thumbnailUrl}
+              alt={title}
+              width={728}
+              height={360}
+              layout="fixed"
+            />
+          </div>
+        ) : null}
         <div className={styles.itemHeader}>
           <h3>{title}</h3>
           <span>
@@ -34,8 +73,8 @@ const ItemPost = ({
         </div>
         <p>{description}</p>
       </a>
-    </Link>
-  );
+    );
+  }
 };
 
 export default ItemPost;

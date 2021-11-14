@@ -78,13 +78,17 @@
       "title": "Work",
       "description": "Welcome to my world!",
       "titleContent": "This is my work",
-      "contentPage": "TODO..."
+      "contentPage": "TODO...",
+      "noResults": "Sorry, nothing was found",
+      "search": "Search articles"
     },
     "pt-BR": {
       "title": "Portfólio",
       "description": "Bem vindo ao meu mundo!",
       "titleContent": "Este é meu Portfólio",
-      "contentPage": "Em construção..."
+      "contentPage": "Em construção...",
+      "noResults": "Desculpe, não foi encontrado nada",
+      "search": "Pesquisar artigos"
     }
   }
 }
