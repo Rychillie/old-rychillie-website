@@ -34,8 +34,6 @@ const Portfolio = ({ posts, locale }: Props) => {
   const { title, description, titleContent, contentPage, noResults, search } =
     workContent[pageLocale];
 
-  console.log(posts);
-
   return (
     <Layout
       title={title}

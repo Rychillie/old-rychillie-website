@@ -66,20 +66,3 @@ export const generateRssFeed = (): void => {
     fs.writeFileSync(`./public/${lang}/feed.xml`, feed.rss2(), "utf8");
   });
 };
-
-// generateRssFeed();
-
-// export async function generateRss(
-//   posts: {
-//     slug: string;
-//     title: string;
-//     description: string;
-//     date: string | number | Date;
-//     content: string;
-//   }[],
-//   { locale = "en-US" }: { locale: string }
-// ) {
-//   const contentLang = locale === "pt-BR" ? "pt-BR" : "en-US";
-//   const { title, description, link, language } = feedContent.feed[contentLang];
-//   console.log(posts);
-// }

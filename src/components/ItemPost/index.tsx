@@ -30,8 +30,6 @@ const ItemPost = ({
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
   const dateLocale = locale === "pt-BR" ? ptBR : enUS;
 
-  console.log(link);
-
   if (!notDefault) {
     return (
       <Link href={`${postLocale}/blog/${slug}`}>
