@@ -43,7 +43,7 @@ const Uses: NextPage = () => {
       <br />
 
       <div className={styles.content}>
-        <p dangerouslySetInnerHTML={{ __html: contentPage }}></p>
+        <div dangerouslySetInnerHTML={{ __html: contentPage }}></div>
       </div>
     </Layout>
   );
