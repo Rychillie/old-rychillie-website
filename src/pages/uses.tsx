@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import content from "../data/pages.json";
 import Image from "next/image";
-import styles from "../styles/About.module.scss";
+import styles from "../styles/Uses.module.scss";
 
 const Uses: NextPage = () => {
   const aboutContent = content.usesPage;
@@ -14,7 +14,7 @@ const Uses: NextPage = () => {
 
   const baseURL = "rychillie.net";
   const linkURL =
-    locale === "pt-BR" ? `${baseURL}/pt-BR/about` : `${baseURL}/about`;
+    locale === "pt-BR" ? `${baseURL}/pt-BR/uses` : `${baseURL}/uses`;
 
   return (
     <Layout
@@ -42,7 +42,7 @@ const Uses: NextPage = () => {
       <br />
       <br />
 
-      <div>
+      <div className={styles.content}>
         <p dangerouslySetInnerHTML={{ __html: contentPage }}></p>
       </div>
     </Layout>
