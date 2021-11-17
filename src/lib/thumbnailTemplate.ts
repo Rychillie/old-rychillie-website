@@ -8,7 +8,13 @@ type GetHtmlProps = {
   readTime?: string;
 };
 
-export function getHtml({ linkURL, title, DefaultThumb }: GetHtmlProps) {
+export function getHtml({
+  linkURL,
+  title,
+  DefaultThumb,
+  date,
+  readTime,
+}: GetHtmlProps) {
   if (DefaultThumb) {
     return `<!DOCTYPE html>
     <html lang="en">
@@ -45,6 +51,14 @@ export function getHtml({ linkURL, title, DefaultThumb }: GetHtmlProps) {
           flex-direction: column;
           max-height: 100%;
           display: flex;
+        }
+        .titleExtra {
+          display: flex;
+          flex-direction: column;
+        }
+        .titleExtra span {
+          margin-bottom: 0.8rem;
+          font-size: 1.4rem;
         }
         .details {
           display: flex;
@@ -95,9 +109,12 @@ export function getHtml({ linkURL, title, DefaultThumb }: GetHtmlProps) {
       </style>
     </head>
       <div class="container" style="width: 1200px;height: 630px;">
-        <h1 class="title">
-          ${title}
-        </h1>
+        <div class="titleExtra">
+          <span>${date}  •  ${readTime}</span>
+          <h1 class="title">
+            ${title}
+          </h1>
+        </div>
         <div class="details">
           <img
             src="https://rychillie.net/images/rychillie.png"

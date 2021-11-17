@@ -3,6 +3,7 @@ import marked from "marked";
 import glob from "glob-promise";
 import path from "path";
 import { promises as fs } from "fs";
+import { timeToRead } from "@lib/utils";
 
 const baseUrl =
   process.env.NODE_ENV === "development"
@@ -19,16 +20,25 @@ export async function getAllPosts({ locale = "en-US" }: { locale: string }) {
       const fullPath = path.resolve(file);
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
+      const readTime = timeToRead(meta.content);
+
+      const time =
+        locale === "pt-BR"
+          ? `${readTime} min de leitura`
+          : `${readTime} min of reading`;
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
         / /g,
         "%20"
-      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      )}&slug=${
+        path.parse(fullPath).name
+      }&lang=${locale}&readTime=${time}&date=${meta.data.date}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
+        timeToRead: time,
         thumbnailUrl: thumbAPI,
         date: meta.data.date,
       };
@@ -52,16 +62,25 @@ export async function getPostBySlug(
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
       const content = marked(meta.content);
+      const readTime = timeToRead(meta.content);
+
+      const time =
+        locale === "pt-BR"
+          ? `${readTime} min de leitura`
+          : `${readTime} min of reading`;
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
         / /g,
         "%20"
-      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      )}&slug=${
+        path.parse(fullPath).name
+      }&lang=${locale}&readTime=${time}&date=${meta.data.date}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
+        timeToRead: time,
         thumbnailUrl: thumbAPI,
         date: meta.data.date,
         content: content,
@@ -89,16 +108,25 @@ export async function getAllPostsByLocale({
       const fileContent = await fs.readFile(fullPath, "utf8");
       const meta = matter(fileContent);
       const content = marked(meta.content);
+      const readTime = timeToRead(meta.content);
+
+      const time =
+        locale === "pt-BR"
+          ? `${readTime} min de leitura`
+          : `${readTime} min of reading`;
 
       const thumbAPI = `${baseUrl}/api/thumbnail.png?title=${meta.data.title.replace(
         / /g,
         "%20"
-      )}&slug=${path.parse(fullPath).name}&lang=${locale}`;
+      )}&slug=${
+        path.parse(fullPath).name
+      }&lang=${locale}&readTime=${time}&date=${meta.data.date}`;
 
       return {
         title: meta.data.title,
         slug: path.parse(fullPath).name,
         description: meta.data.description,
+        timeToRead: time,
         thumbnailUrl: thumbAPI,
         date: meta.data.date,
         content: content,
