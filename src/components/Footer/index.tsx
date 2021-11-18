@@ -12,7 +12,7 @@ const Footer = ({ locale }: Props): JSX.Element => {
   const { pages, social, extra } = content.footer[localeContent];
 
   return (
-    <footer className={styles.footer}>
+    <div className={styles.footer}>
       <div className={styles.side}>
         <h2>
           <Link href="/">
@@ -45,7 +45,7 @@ const Footer = ({ locale }: Props): JSX.Element => {
           ))}
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 

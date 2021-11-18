@@ -36,6 +36,11 @@ const variants = {
     x: 0,
     y: -100,
   },
+  otherHidden: {
+    opacity: 0,
+    x: 0,
+    y: 200,
+  },
 };
 
 const defaultImg = "https://rychillie.net/api/thumbnail.png?defaultImg";
@@ -90,8 +95,16 @@ const Layout = ({
     >
       {children}
     </motion.main>
-    {hasNewsletter && <Newsletter locale={locale} />}
-    {hasFooter && <Footer />}
+    <motion.footer
+      initial="otherHidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ type: "linear" }}
+    >
+      {hasNewsletter && <Newsletter locale={locale} />}
+      {hasFooter && <Footer />}
+    </motion.footer>
   </>
 );
 
