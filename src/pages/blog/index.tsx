@@ -13,6 +13,7 @@ type Props = {
     description: string;
     thumbnailUrl: string;
     date: string;
+    timeToRead: string;
   }>;
 };
 
@@ -80,6 +81,7 @@ const Blog = ({ posts, locale }: Props) => {
             thumbnailUrl={post.thumbnailUrl}
             date={post.date}
             locale={locale}
+            timeToRead={post.timeToRead}
           />
         ))}
       </div>

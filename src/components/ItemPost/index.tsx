@@ -11,6 +11,7 @@ type Props = {
   thumbnailUrl: string;
   date: string;
   locale: "en-US" | string;
+  timeToRead?: string;
   notDefault?: boolean;
   hasBanner?: boolean;
   link?: string;
@@ -26,6 +27,7 @@ const ItemPost = ({
   link,
   date,
   locale,
+  timeToRead,
 }: Props): JSX.Element => {
   const postLocale = locale === "pt-BR" ? "/pt-BR" : "";
   const dateLocale = locale === "pt-BR" ? ptBR : enUS;
@@ -36,9 +38,15 @@ const ItemPost = ({
         <a className={styles.itemPost}>
           <div className={styles.itemHeader}>
             <h3>{title}</h3>
-            <span>
-              {format(parseISO(date), "MMMM dd, yyyy", { locale: dateLocale })}
-            </span>
+            <div className={styles.details}>
+              <span>
+                {format(parseISO(date), "MMMM dd, yyyy", {
+                  locale: dateLocale,
+                })}
+              </span>
+              &bull;
+              <span>{timeToRead}</span>
+            </div>
           </div>
           <p>{description}</p>
         </a>
@@ -65,6 +73,7 @@ const ItemPost = ({
         ) : null}
         <div className={styles.itemHeader}>
           <h3>{title}</h3>
+
           <span>
             {format(parseISO(date), "MMMM dd, yyyy", { locale: dateLocale })}
           </span>
