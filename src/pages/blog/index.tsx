@@ -72,18 +72,23 @@ const Blog = ({ posts, locale }: Props) => {
 
       <div className={styles.postListing}>
         {!filteredBlogPosts.length && <p>{noResults}</p>}
-        {filteredBlogPosts.map((post) => (
-          <ItemPost
-            key={post.slug}
-            title={post.title}
-            slug={post.slug}
-            description={post.description}
-            thumbnailUrl={post.thumbnailUrl}
-            date={post.date}
-            locale={locale}
-            timeToRead={post.timeToRead}
-          />
-        ))}
+        {filteredBlogPosts.length && (
+          <ul>
+            {filteredBlogPosts.map((post) => (
+              <li key={post.slug}>
+                <ItemPost
+                  title={post.title}
+                  slug={post.slug}
+                  description={post.description}
+                  thumbnailUrl={post.thumbnailUrl}
+                  date={post.date}
+                  locale={locale}
+                  timeToRead={post.timeToRead}
+                />
+              </li>
+            ))}
+          </ul>
+        )}
       </div>
     </Layout>
   );
