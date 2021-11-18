@@ -18,6 +18,8 @@ body {
   min-width: 320px;
   background-color: $black;
   color: $secondary;
+  font-size: 16px;
+  line-height: 2;
 }
 
 #__next {
@@ -38,7 +40,6 @@ h5,
 h6 {
   color: $primary;
   margin-bottom: 1.2rem;
-  line-height: 2;
   font-weight: bold;
 }
 
@@ -54,23 +55,9 @@ h3 {
   font-size: 1.48rem;
 }
 
-h4 {
-  font-size: 1.4rem;
-}
-
-h5 {
-  font-size: 1.32rem;
-}
-
-h6 {
-  font-size: 1.24rem;
-}
-
 p {
   color: $secondary;
   margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 32px;
   letter-spacing: 0.01rem;
 
   &:last-child {
