@@ -1,6 +1,8 @@
 @import "../../styles/variables.scss";
 
 .navigation {
+  z-index: 9;
+
   a {
     opacity: 1;
     color: #fafafa;
@@ -60,13 +62,13 @@
   max-width: 768px;
   padding-top: 24px;
   padding-bottom: 24px;
-  height: calc(100vh - 64px);
-  z-index: 1000;
+  height: -webkit-fill-available;
+  z-index: -9;
   opacity: 0;
   left: 0;
   right: 0;
-  top: 64px;
-  position: absolute;
+  top: 0;
+  position: fixed;
   background-color: $black;
   transition: opacity 300ms ease, transform 300ms ease;
   align-items: center;
