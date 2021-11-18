@@ -44,6 +44,30 @@
   }
 }
 
+.titlePost {
+  font-size: 1.8rem;
+  margin-bottom: 0.4rem;
+}
+
+.details {
+  color: $secondary;
+  margin-bottom: 0;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 2rem;
+
+  span {
+    &:first-child {
+      margin-right: 4px;
+      margin-left: 0;
+      text-transform: capitalize;
+    }
+
+    margin-right: 0;
+    margin-left: 4px;
+  }
+}
+
 .article {
   width: 100%;
 
