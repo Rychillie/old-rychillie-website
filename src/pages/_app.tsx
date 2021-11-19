@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 import { DefaultSeo } from "next-seo";
 import { AnimateSharedLayout } from "framer-motion";
+import CommandBar from "@components/CommandBar";
 
 import * as gtag from "@lib/gtag";
 import Analytics from "@components/Analytics";
@@ -26,7 +27,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   }, [myRouter.events]);
 
   return (
-    <>
+    <CommandBar>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.ico" />
         <meta name="theme-color" content="#151515" />
@@ -63,12 +64,11 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         }}
         canonical={url}
       />
-
       <AnimateSharedLayout>
         <Component {...pageProps} canonical={url} key={url} />
       </AnimateSharedLayout>
       <Analytics />
-    </>
+    </CommandBar>
   );
 }
 export default MyApp;

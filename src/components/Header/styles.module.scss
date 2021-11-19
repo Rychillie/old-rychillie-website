@@ -34,3 +34,24 @@
     background-image: none;
   }
 }
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: 0;
+  max-width: 24px;
+  height: 24px;
+  cursor: pointer;
+  opacity: 1;
+
+  img {
+    border-radius: 0 !important;
+    padding: 0.2em;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
