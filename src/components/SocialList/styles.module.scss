@@ -50,6 +50,9 @@
     @media (max-width: 768px) {
       img {
         opacity: 1;
+        max-width: 26px;
+        border-radius: 10px;
+        height: 26px;
       }
 
       .socialName {
