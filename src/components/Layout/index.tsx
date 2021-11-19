@@ -95,16 +95,7 @@ const Layout = ({
     >
       {children}
     </motion.main>
-    <motion.footer
-      initial="otherHidden"
-      animate="enter"
-      exit="exit"
-      variants={variants}
-      transition={{ type: "linear" }}
-    >
-      {hasNewsletter && <Newsletter locale={locale} />}
-      {hasFooter && <Footer />}
-    </motion.footer>
+    {hasFooter && <Footer />}
   </>
 );
 

@@ -2,6 +2,26 @@ import { AnimateSharedLayout } from "framer-motion";
 import styles from "./styles.module.scss";
 import Link from "next/link";
 import content from "../../data/components.json";
+import { motion } from "framer-motion";
+import SocialList from "@components/SocialList";
+
+const variants = {
+  hidden: {
+    opacity: 0,
+    x: 0,
+    y: 200,
+  },
+  enter: {
+    opacity: 1,
+    x: 0,
+    y: 0,
+  },
+  exit: {
+    opacity: 0,
+    x: 0,
+    y: -100,
+  },
+};
 
 type Props = {
   locale?: string | undefined;
@@ -12,40 +32,16 @@ const Footer = ({ locale }: Props): JSX.Element => {
   const { pages, social, extra } = content.footer[localeContent];
 
   return (
-    <div className={styles.footer}>
-      <div className={styles.side}>
-        <h2>
-          <Link href="/">
-            <a>
-              🦄 <span>Rychillie</span>
-            </a>
-          </Link>
-        </h2>
-      </div>
-      <div className={styles.side}>
-        <div className={styles.list}>
-          {pages.map(({ name, href }) => (
-            <Link key={name} href={href}>
-              <a>{name}</a>
-            </Link>
-          ))}
-        </div>
-        <div className={styles.list}>
-          {social.map(({ name, href }) => (
-            <a key={name} href={href} target="_blank" rel="noreferrer">
-              {name}
-            </a>
-          ))}
-        </div>
-        <div className={styles.list}>
-          {extra.map(({ name, href }) => (
-            <Link key={name} href={href}>
-              <a>{name}</a>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </div>
+    <motion.footer
+      initial="hidden"
+      animate="enter"
+      exit="exit"
+      variants={variants}
+      transition={{ type: "linear" }}
+      className={styles.footer}
+    >
+      <SocialList />
+    </motion.footer>
   );
 };
 
