@@ -27,17 +27,15 @@ const links: { name: string; href: string; icon: string }[] = [
 
 const SocialList = (): JSX.Element => {
   return (
-    <ul className={styles.socialMedia}>
+    <div className={styles.socialMedia}>
       {links.map(({ name, href, icon }) => (
-        <li key={name}>
-          <a href={href} target="_blank" rel="noreferrer">
-            <img src={`/icons/${icon}.svg`} width={22} height={22} alt={name} />
-          </a>
-
+        <a href={href} key={name} target="_blank" rel="noreferrer" title={name}>
           <span className={styles.socialName}>{name}</span>
-        </li>
+
+          <img src={`/icons/${icon}.svg`} width={22} height={22} alt={name} />
+        </a>
       ))}
-    </ul>
+    </div>
   );
 };
 
