@@ -1,7 +1,7 @@
 ---
 title: "Improve your imports on NextJS"
 description: "No more imports detailing for each folder you are browsing, your code cleaner, readable and interesting."
-date: "2021-11-22"
+date: "2021-11-20"
 image: ""
 tags:
   - "nextJS"

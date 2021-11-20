@@ -1,7 +1,7 @@
 ---
 title: "Melhore seus imports no NextJS"
 description: "Chega de imports detalhando por cada pasta que você está navegando, seu código mais limpo, legivel e interessante."
-date: "2021-11-22"
+date: "2021-11-20"
 image: ""
 tags:
   - "nextJS"
