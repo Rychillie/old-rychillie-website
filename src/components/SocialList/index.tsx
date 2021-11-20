@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const links: { name: string; href: string; icon: string }[] = [
   {
-    name: "Twiiter",
+    name: "Twiter",
     href: "https://twitter.com/rychillie",
     icon: "twitter",
   },
