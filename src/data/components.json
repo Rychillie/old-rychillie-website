@@ -166,5 +166,21 @@
       "privacyMiddle": "e sua",
       "privacyPolicy": "Política de Privacidade"
     }
+  },
+  "shortCutHome": {
+    "en-US": {
+      "isMbl": "Tap to start →",
+      "isDkt": {
+        "press": "Press",
+        "toStart": "to start →"
+      }
+    },
+    "pt-BR": {
+      "isMbl": "Toque para começar →",
+      "isDkt": {
+        "press": "Pressione",
+        "toStart": "para começar →"
+      }
+    }
   }
 }

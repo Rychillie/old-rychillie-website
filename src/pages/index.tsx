@@ -6,9 +6,10 @@ import Link from "@components/NoScrollLink";
 import Layout from "@components/Layout";
 import SocialList from "@components/SocialList";
 import content from "../data/pages.json";
-import styles from "../styles/Home.module.scss";
 import { getAllPostsByLocale } from "@lib/posts";
 import { generateRssFeed } from "@lib/rss";
+import ShortcutHome from "@components/ShortcutHome";
+import styles from "../styles/Home.module.scss";
 
 const Home: NextPage = () => {
   const router = useRouter();
@@ -45,6 +46,7 @@ const Home: NextPage = () => {
         <Link href="/work">{myWork}</Link> {littleMore}{" "}
         <Link href="/about">{aboutMe}</Link>.
       </p>
+      <ShortcutHome locale={pageLocale} />
       <div className={styles.profile}>
         <div className={styles.containerImage}>
           <Image
