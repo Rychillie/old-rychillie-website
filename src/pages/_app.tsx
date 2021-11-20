@@ -16,8 +16,6 @@ function MyApp({ Component, pageProps, router }: AppProps) {
   const pageLocale = useRouter();
   const locale = pageLocale ? "pt-BR" : "en-US";
 
-  const status = process.env.NODE_ENV === "development" ? "dev" : "prod";
-
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       gtag.pageview(url);
@@ -69,7 +67,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
       <AnimateSharedLayout>
         <Component {...pageProps} canonical={url} key={url} />
       </AnimateSharedLayout>
-      {status === "dev" ? null : <Analytics />}
+      <Analytics />
     </CommandBar>
   );
 }
