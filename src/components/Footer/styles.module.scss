@@ -7,12 +7,8 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding-bottom: 2rem;
-  padding-top: 2rem;
-  position: fixed;
-  left: 50%;
-  bottom: 0;
-  transform: translateX(-50%) !important;
+  padding-bottom: 4rem;
+  padding-top: 2.4rem;
 
   @extend .container;
 }
