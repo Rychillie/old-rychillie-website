@@ -16,20 +16,22 @@ const Header = ({ locale }: Props): JSX.Element => {
 
   return (
     <header className={styles.header}>
-      <Link href="/">
-        <a className={styles.logo}>
-          🦄 <span>Rychillie</span>
-        </a>
-      </Link>
+      <nav className={styles.navigation}>
+        <Link href="/">
+          <a className={styles.logo}>
+            🦄 <span>Rychillie</span>
+          </a>
+        </Link>
 
-      <button
-        type="button"
-        aria-label="Command"
-        className={styles.menu}
-        onClick={query.toggle}
-      >
-        <img src="/icons/command.svg" alt="menu" />
-      </button>
+        <button
+          type="button"
+          aria-label="Command"
+          className={styles.menu}
+          onClick={query.toggle}
+        >
+          <img src="/icons/command.svg" alt="menu" />
+        </button>
+      </nav>
 
       {/* <Navigation locale={locale} /> */}
     </header>
