@@ -44,7 +44,7 @@
 
     &:focus {
       outline: none;
-      border-color: $secondary;
+      border-color: rgba($secondary, 0.24);
     }
   }
 
