@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
     <CommandBar>
       <Head>
         <link rel="icon" type="image/png" href="/favicon.ico" />
-        <meta name="theme-color" content="#151515" />
+        <meta name="theme-color" content="#020202" />
         <link
           rel="alternate"
           type="application/rss+xml"
