@@ -29,12 +29,12 @@ const Uses: NextPage = () => {
       <h1>{titleContent}</h1>
 
       <Image
-        src={"/images/home-office.png"}
-        blurDataURL="/images/home-office.png"
+        src={"/images/setup-2021.png"}
+        blurDataURL="/images/setup-2021.png"
         placeholder="blur"
         quality={100}
-        width={3840}
-        height={2160}
+        width={3431}
+        height={1976}
         layout="intrinsic"
         alt="home-office"
       />
