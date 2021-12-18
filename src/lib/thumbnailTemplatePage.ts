@@ -1,13 +1,4 @@
-/* eslint-disable @next/next/no-img-element */
-
-type GetHtmlProps = {
-  title: string;
-  date?: string;
-  linkURL?: string;
-  readTime?: string;
-};
-
-export function getHtml({ linkURL, title, date, readTime }: GetHtmlProps) {
+export function htmlPage() {
   return `
     <!DOCTYPE html>
     <html lang="en">
@@ -23,6 +14,7 @@ export function getHtml({ linkURL, title, date, readTime }: GetHtmlProps) {
           * {
             box-sizing: border-box;
           }
+
           body,
           html {
             margin: 0;
@@ -40,33 +32,38 @@ export function getHtml({ linkURL, title, date, readTime }: GetHtmlProps) {
             height: 100%;
             flex: 1;
           }
+
           .container {
             max-height: 100%;
             height: 100%;
             padding: 4rem;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
             flex-direction: column;
             max-height: 100%;
             display: flex;
           }
-          .titleExtra {
-            display: flex;
-            flex-direction: column;
-          }
-          .titleExtra span {
-            margin-bottom: 0.8rem;
-            font-size: 1.4rem;
-          }
+
           .details {
             display: flex;
             flex-direction: row;
           }
+
           .title {
             margin: 0;
             color: #e5e7eb;
             font-size: 4.8rem;
             line-height: 1;
           }
+
+          .subtitle {
+            margin: 2.4rem 0 4.8rem;
+            color: #e5e7eb;
+            opacity: 0.96;
+            font-size: 2.4rem;
+            line-height: 1;
+          }
+
           img {
             border-radius: 9999px;
             max-width: 120px;
@@ -74,57 +71,31 @@ export function getHtml({ linkURL, title, date, readTime }: GetHtmlProps) {
             width: 100%;
             height: 100%;
             border: 4px solid #949495;
+            margin: 3.2rem 0 2rem;
           }
-          .options {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            margin-left: 1rem;
-          }
-          .profileName {
-            margin: 0;
-            color: #e5e7eb;
-            font-size: 1.8rem;
-            line-height: 1;
-            font-weight: 600;
-          }
-          .link {
-            margin-top: 0.8rem;
-            margin-bottom: 0.8rem;
-            font-size: 1.275rem;
-            line-height: 1;
-            font-weight: 600;
-          }
+
           .profileTwitter {
             margin: 0;
             color: #1d9bf0;
-            letter-spacing: 0.025em;
+            font-weight: 500;
+            letter-spacing: 0.032em;
             font-size: 1.275rem;
             line-height: 1;
           }
         </style>
       </head>
-      <body>
+      <bod>
         <div class="container" style="width: 1200px; height: 630px">
-          <div class="titleExtra">
-            <span>${date} • ${readTime}</span>
-            <h1 class="title">${title}</h1>
-          </div>
-          <div class="details">
-            <img
-              src="https://rychillie.net/images/rychillie.png"
-              class="profileImage"
-              alt="Rychillie"
-            />
-            <div class="options">
-              <p class="profileName">Rychillie - Frontend Developer</p>
-              <p class="link">${linkURL}</p>
-              <p class="profileTwitter">twitter.com/rychillie</p>
-            </div>
-          </div>
+          <img
+            src="https://rychillie.net/images/rychillie.png"
+            class="profileImage"
+            alt="Rychillie"
+          />
+          <h1 class="title">rychillie.net</h1>
+          <h2 class="subtitle">Frontend Developer</h2>
+          <p class="profileTwitter">twitter.com/rychillie</p>
         </div>
-      </body>
+      </bod>
     </html>
   `;
 }

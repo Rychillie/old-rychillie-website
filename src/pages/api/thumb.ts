@@ -1,9 +1,7 @@
 /* eslint-disable import/no-anonymous-default-export */
 import { NextApiRequest, NextApiResponse } from "next";
 import { getScreenshot } from "@lib/chromium";
-import { getHtml } from "@lib/thumbnailTemplate";
-import { parseISO, format } from "date-fns";
-import { enUS, ptBR } from "date-fns/locale";
+import { htmlPage } from "@lib/thumbnailTemplatePage";
 
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
@@ -13,27 +11,8 @@ export default async (
   res: NextApiResponse
 ): Promise<any> => {
   try {
-    const query = req.query;
-
-    const baseURL = "rychillie.net";
-
-    const title = String(query.title);
-    const slug = String(query.slug);
-    const itemLang = String(query.lang);
-    const dateLocale = itemLang === "pt-BR" ? ptBR : enUS;
-    const date = format(parseISO(String(query.date)), "MMMM dd, yyyy", {
-      locale: dateLocale,
-    });
-    const readTime = String(query.readTime);
-    const linkURL =
-      itemLang === "pt-BR" ? `${baseURL}/pt-BR/${slug}` : `${baseURL}/${slug}`;
-
-    if (!title) {
-      throw new Error("Title is required");
-    }
-
-    //http://localhost:3000/api/thumbnail.png?title=test&slug=test&lang=pt-BR
-    const html = getHtml({ title, linkURL, date, readTime });
+    //http://localhost:3000/api/thumb.png
+    const html = htmlPage as any;
 
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
