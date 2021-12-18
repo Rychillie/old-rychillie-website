@@ -2,7 +2,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import { getScreenshot } from "@lib/chromium";
 import { getHtml } from "@lib/thumbnailTemplate";
-import { parseISO, format } from "date-fns";
+import { parseISO, format, isValid } from "date-fns";
 import { enUS, ptBR } from "date-fns/locale";
 
 const isDev = !process.env.AWS_REGION;
@@ -15,16 +15,19 @@ export default async (
   try {
     const query = req.query;
 
-    const baseURL = "rychillie.net";
+    const baseURL = isDev ? "http://localhost:3000" : "https://rychillie.net";
 
     const imgDefault = String(query.defaultImg);
     const title = String(query.title);
     const slug = String(query.slug);
     const itemLang = String(query.lang);
     const dateLocale = itemLang === "pt-BR" ? ptBR : enUS;
-    const date = format(parseISO(String(query.date)), "MMMM dd, yyyy", {
-      locale: dateLocale,
-    });
+    const validDate = isValid(parseISO(String(query.date)));
+    const date = validDate
+      ? format(parseISO(String(query.date)), "MMMM dd, yyyy", {
+          locale: dateLocale,
+        })
+      : "October 3, 1996";
     const readTime = String(query.readTime);
     const linkURL =
       itemLang === "pt-BR" ? `${baseURL}/pt-BR/${slug}` : `${baseURL}/${slug}`;
