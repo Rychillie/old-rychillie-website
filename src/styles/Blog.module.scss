@@ -119,9 +119,10 @@
 
   p {
     line-height: 2rem;
+    display: inline;
 
     code {
-      display: inline-block;
+      display: inline;
       width: fit-content;
       padding: 4px 8px;
       border-radius: 4px;
