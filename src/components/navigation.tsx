@@ -64,6 +64,12 @@ const Navigation = ({ pageProps }: any) => {
                 href="/home"
                 className={toolbarLink({
                   active: router.pathname === "/home" ? true : false,
+                  css: {
+                    display: "none",
+                    "@bp3": {
+                      display: "block",
+                    },
+                  },
                 })}
               >
                 <Icons.HomeIcon />
@@ -84,6 +90,12 @@ const Navigation = ({ pageProps }: any) => {
                 href="/writing"
                 className={toolbarLink({
                   active: router.pathname === "/writing" ? true : false,
+                  css: {
+                    display: "none",
+                    "@bp3": {
+                      display: "block",
+                    },
+                  },
                 })}
               >
                 <Icons.Pencil1Icon />
@@ -104,6 +116,12 @@ const Navigation = ({ pageProps }: any) => {
                 href="/learn"
                 className={toolbarLink({
                   active: router.pathname === "/learn" ? true : false,
+                  css: {
+                    display: "none",
+                    "@bp3": {
+                      display: "block",
+                    },
+                  },
                 })}
               >
                 <Icons.RocketIcon />
@@ -118,7 +136,16 @@ const Navigation = ({ pageProps }: any) => {
             </TooltipPrimitive.Content>
           </TooltipPrimitive.Root>
 
-          <ToolbarPrimitive.Separator className={toolbarSeparator()} />
+          <ToolbarPrimitive.Separator
+            className={toolbarSeparator({
+              css: {
+                display: "none",
+                "@bp3": {
+                  display: "block",
+                },
+              },
+            })}
+          />
 
           <TooltipPrimitive.Root>
             <TooltipPrimitive.Trigger asChild>
