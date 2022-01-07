@@ -1,17 +1,19 @@
 import { globalStyles } from "@styles/global";
 import type { AppProps } from "next/app";
-import Navigation from "@components/navigation";
+import NavigationTop from "@components/navigationTop";
+import NavigationBottom from "@components/navigationBottom";
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
 
   return (
     <>
-      <Navigation />
+      <NavigationTop />
 
       <main>
         <Component {...pageProps} />
       </main>
+      <NavigationBottom />
     </>
   );
 }

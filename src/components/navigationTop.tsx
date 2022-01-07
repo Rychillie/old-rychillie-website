@@ -18,7 +18,7 @@ import { dropdownContent, dropdownItem } from "@styles/dropdown";
 import { tooltipContent } from "@styles/tooltip";
 import { Container } from "@styles/structure";
 
-const Navigation = ({ pageProps }: any) => {
+const NavigationTop = ({ pageProps }: any) => {
   // detect if is page or not with router
   const router = useRouter();
 
@@ -30,18 +30,18 @@ const Navigation = ({ pageProps }: any) => {
           flexDirection: "row",
           justifyContent: "space-between",
           alignItems: "center",
-          pt: "$1",
-          pb: "$1",
-          mb: "$4",
+          pt: "$4",
+          pb: "$4",
+          mb: "$2",
           "@bp3": {
-            pt: "$2",
-            pb: "$2",
-            mb: "$5",
+            pt: "$5",
+            pb: "$5",
+            mb: "$3",
           },
           "@bp4": {
-            pt: "$3",
-            pb: "$3",
-            mb: "$6",
+            pt: "$6",
+            pb: "$6",
+            mb: "$4",
           },
         },
       })}
@@ -290,4 +290,4 @@ const Navigation = ({ pageProps }: any) => {
   );
 };
 
-export default Navigation;
+export default NavigationTop;
