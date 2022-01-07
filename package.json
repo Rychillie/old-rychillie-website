@@ -9,6 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/colors": "0.1.8",
+    "@radix-ui/react-dropdown-menu": "0.1.4",
+    "@radix-ui/react-icons": "1.0.3",
+    "@radix-ui/react-toolbar": "0.1.4",
+    "@radix-ui/react-tooltip": "0.1.6",
+    "@stitches/core": "1.2.6",
     "@types/date-fns": "^2.6.0",
     "@types/prismjs": "^1.16.6",
     "@zeit/next-sass": "^1.0.1",
