@@ -1,6 +1,5 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import Navigation from "../components/navigation";
 
 const Writing: NextPage = ({ pageProps }: any) => {
   return (

@@ -13,10 +13,10 @@ import {
   toolbarButton,
   toolbarLink,
   toolbarSeparator,
-} from "../../styles/toolbar";
-import { dropdownContent, dropdownItem } from "../../styles/dropdown";
-import { tooltipContent } from "../../styles/tooltip";
-import { Container } from "../../styles/structure";
+} from "@styles/toolbar";
+import { dropdownContent, dropdownItem } from "@styles/dropdown";
+import { tooltipContent } from "@styles/tooltip";
+import { Container } from "@styles/structure";
 
 const Navigation = ({ pageProps }: any) => {
   // detect if is page or not with router
