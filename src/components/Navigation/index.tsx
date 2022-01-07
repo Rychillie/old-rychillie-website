@@ -1,26 +1,265 @@
-import { AnimateSharedLayout } from "framer-motion";
-import styles from "./styles.module.scss";
-import Link from "@components/NoScrollLink";
-import content from "../../data/components.json";
+import type { NextPage } from "next";
+import { useRouter } from "next/router";
+import Head from "next/head";
+import { useState } from "react";
+import * as TooltipPrimitive from "@radix-ui/react-tooltip";
+import * as ToolbarPrimitive from "@radix-ui/react-toolbar";
+import * as DropdownPrimitive from "@radix-ui/react-dropdown-menu";
+import * as Icons from "@radix-ui/react-icons";
+import {
+  toggleGroup,
+  toggleItem,
+  toolbar,
+  toolbarButton,
+  toolbarLink,
+  toolbarSeparator,
+} from "@styles/toolbar";
+import { dropdownContent, dropdownItem } from "@styles/dropdown";
+import { tooltipContent } from "@styles/tooltip";
+import { Container } from "@styles/structure";
 
-type Props = {
-  locale?: string | undefined;
-};
-
-const Navigation = ({ locale }: Props): JSX.Element => {
-  const localeContent = locale === "pt-BR" ? "pt-BR" : "en-US";
-  const links = content.navigation[localeContent];
+const Navigation = ({ pageProps }: any) => {
+  // detect if is page or not with router
+  const router = useRouter();
 
   return (
-    <AnimateSharedLayout>
-      <nav className={styles.navigation}>
-        {links.map(({ name, href }) => (
-          <Link key={name} href={href}>
-            <a>{name}</a>
-          </Link>
-        ))}
-      </nav>
-    </AnimateSharedLayout>
+    <nav
+      className={Container({
+        css: {
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          alignItems: "center",
+          pt: "$1",
+          pb: "$1",
+          mb: "$4",
+          "@bp3": {
+            pt: "$2",
+            pb: "$2",
+            mb: "$5",
+          },
+          "@bp4": {
+            pt: "$3",
+            pb: "$3",
+            mb: "$6",
+          },
+        },
+      })}
+    >
+      <h1>🦄</h1>
+
+      <TooltipPrimitive.TooltipProvider
+        delayDuration={64}
+        skipDelayDuration={250}
+      >
+        <ToolbarPrimitive.Root
+          tabIndex={1}
+          orientation="vertical"
+          className={toolbar()}
+          aria-label="Main navigation"
+        >
+          <TooltipPrimitive.Root>
+            <TooltipPrimitive.Trigger asChild>
+              <ToolbarPrimitive.Link
+                href="/home"
+                className={toolbarLink({
+                  active: router.pathname === "/home" ? true : false,
+                })}
+              >
+                <Icons.HomeIcon />
+              </ToolbarPrimitive.Link>
+            </TooltipPrimitive.Trigger>
+
+            <TooltipPrimitive.Content
+              sideOffset={5}
+              className={tooltipContent()}
+            >
+              Home
+            </TooltipPrimitive.Content>
+          </TooltipPrimitive.Root>
+
+          <TooltipPrimitive.Root>
+            <TooltipPrimitive.Trigger asChild>
+              <ToolbarPrimitive.Link
+                href="/writing"
+                className={toolbarLink({
+                  active: router.pathname === "/writing" ? true : false,
+                })}
+              >
+                <Icons.Pencil1Icon />
+              </ToolbarPrimitive.Link>
+            </TooltipPrimitive.Trigger>
+
+            <TooltipPrimitive.Content
+              sideOffset={5}
+              className={tooltipContent()}
+            >
+              Writing
+            </TooltipPrimitive.Content>
+          </TooltipPrimitive.Root>
+
+          <TooltipPrimitive.Root>
+            <TooltipPrimitive.Trigger asChild>
+              <ToolbarPrimitive.Link
+                href="/learn"
+                className={toolbarLink({
+                  active: router.pathname === "/learn" ? true : false,
+                })}
+              >
+                <Icons.RocketIcon />
+              </ToolbarPrimitive.Link>
+            </TooltipPrimitive.Trigger>
+
+            <TooltipPrimitive.Content
+              sideOffset={5}
+              className={tooltipContent()}
+            >
+              Learn
+            </TooltipPrimitive.Content>
+          </TooltipPrimitive.Root>
+
+          <ToolbarPrimitive.Separator className={toolbarSeparator()} />
+
+          <TooltipPrimitive.Root>
+            <TooltipPrimitive.Trigger asChild>
+              <ToolbarPrimitive.Link className={toolbarLink()}>
+                <Icons.MagnifyingGlassIcon />
+              </ToolbarPrimitive.Link>
+            </TooltipPrimitive.Trigger>
+
+            <TooltipPrimitive.Content
+              sideOffset={5}
+              className={tooltipContent()}
+            >
+              Search
+            </TooltipPrimitive.Content>
+          </TooltipPrimitive.Root>
+
+          {/*
+            <TooltipPrimitive.Root>
+              <TooltipPrimitive.Trigger asChild>
+                <ToolbarPrimitive.Link
+                  href="https://github.com/rychillie"
+                  target="_blank"
+                  className={toolbarLink()}
+                >
+                  <Icons.GitHubLogoIcon />
+                </ToolbarPrimitive.Link>
+              </TooltipPrimitive.Trigger>
+              <TooltipPrimitive.Content
+                sideOffset={5}
+                className={tooltipContent()}
+              >
+                GitHub
+              </TooltipPrimitive.Content>
+            </TooltipPrimitive.Root>
+
+            <TooltipPrimitive.Root>
+              <TooltipPrimitive.Trigger asChild>
+                <ToolbarPrimitive.Link
+                  href="https://twitter.com/rychillie"
+                  target="_blank"
+                  className={toolbarLink()}
+                >
+                  <Icons.TwitterLogoIcon />
+                </ToolbarPrimitive.Link>
+              </TooltipPrimitive.Trigger>
+              <TooltipPrimitive.Content
+                sideOffset={5}
+                className={tooltipContent()}
+              >
+                Twitter
+              </TooltipPrimitive.Content>
+            </TooltipPrimitive.Root>
+            <ToolbarPrimitive.Separator className={toolbarSeparator()} />
+
+            <ToolbarPrimitive.ToggleGroup
+                type="single"
+                aria-label="Mode"
+                defaultValue="light"
+                className={toggleGroup()}
+            >
+                <TooltipPrimitive.Root>
+                <TooltipPrimitive.Trigger asChild>
+                    <ToolbarPrimitive.ToolbarToggleItem
+                    value="light"
+                    className={toggleItem()}
+                    // onClick={toggleTheme}
+                    >
+                    <Icons.SunIcon />
+                    </ToolbarPrimitive.ToolbarToggleItem>
+                </TooltipPrimitive.Trigger>
+                <TooltipPrimitive.Content
+                    sideOffset={10}
+                    className={tooltipContent()}
+                >
+                    Light
+                </TooltipPrimitive.Content>
+                </TooltipPrimitive.Root>
+
+                <TooltipPrimitive.Root>
+                <TooltipPrimitive.Trigger asChild>
+                    <ToolbarPrimitive.ToolbarToggleItem
+                    value="dark"
+                    className={toggleItem()}
+                    >
+                    <Icons.MoonIcon />
+                    </ToolbarPrimitive.ToolbarToggleItem>
+                </TooltipPrimitive.Trigger>
+                <TooltipPrimitive.Content
+                    sideOffset={10}
+                    className={tooltipContent()}
+                >
+                    Dark
+                </TooltipPrimitive.Content>
+                </TooltipPrimitive.Root>
+            </ToolbarPrimitive.ToggleGroup>
+            */}
+
+          <DropdownPrimitive.Root>
+            <TooltipPrimitive.Root>
+              <DropdownPrimitive.Trigger asChild>
+                <TooltipPrimitive.Trigger asChild>
+                  <ToolbarPrimitive.Button
+                    aria-label="Login"
+                    className={toolbarButton({
+                      css: {
+                        ml: "auto",
+                        "&[data-state=open]": {
+                          color: "$hiContrast",
+                          backgroundImage:
+                            "linear-gradient(25deg, #FA3CF9 1.7%, #FC587E 50.85%, #FC3239 99.99%)",
+                        },
+                      },
+                    })}
+                  >
+                    <Icons.AvatarIcon />
+                  </ToolbarPrimitive.Button>
+                </TooltipPrimitive.Trigger>
+              </DropdownPrimitive.Trigger>
+              <DropdownPrimitive.Content
+                sideOffset={5}
+                className={dropdownContent()}
+              >
+                <DropdownPrimitive.Item className={dropdownItem()}>
+                  <Icons.GearIcon />
+                  Settings
+                </DropdownPrimitive.Item>
+                <DropdownPrimitive.Item className={dropdownItem()}>
+                  <Icons.ExitIcon /> Logout
+                </DropdownPrimitive.Item>
+              </DropdownPrimitive.Content>
+              <TooltipPrimitive.Content
+                sideOffset={5}
+                className={tooltipContent()}
+              >
+                Account
+              </TooltipPrimitive.Content>
+            </TooltipPrimitive.Root>
+          </DropdownPrimitive.Root>
+        </ToolbarPrimitive.Root>
+      </TooltipPrimitive.TooltipProvider>
+    </nav>
   );
 };
 

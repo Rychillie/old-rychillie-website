@@ -15,9 +15,6 @@ module.exports = {
   },
   target: "serverless",
   reactStrictMode: true,
-  sassOptions: {
-    includePaths: [path.join(__dirname, "styles")],
-  },
   i18n: {
     localeDetection: true,
     locales: ["en-US", "pt-BR"],

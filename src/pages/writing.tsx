@@ -1,9 +1,7 @@
 import type { NextPage } from "next";
 import Head from "next/head";
 
-// inspiration: https://pedro-git-v2-peduarte.vercel.app/
-
-const Intro: NextPage = ({ pageProps }: any) => {
+const Writing: NextPage = ({ pageProps }: any) => {
   return (
     <>
       <Head>
@@ -12,9 +10,9 @@ const Intro: NextPage = ({ pageProps }: any) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <h1>Page Intro</h1>
+      <h1>Page Writing</h1>
     </>
   );
 };
 
-export default Intro;
+export default Writing;
