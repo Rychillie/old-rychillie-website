@@ -29,6 +29,7 @@ const NavigationTop = ({ pageProps }: any) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
+          borderBottom: "1px solid $mauve6",
           alignItems: "center",
           pt: "$4",
           pb: "$4",
@@ -67,7 +68,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   css: {
                     display: "none",
                     "@bp3": {
-                      display: "block",
+                      display: "flex",
                     },
                   },
                 })}
@@ -93,7 +94,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   css: {
                     display: "none",
                     "@bp3": {
-                      display: "block",
+                      display: "flex",
                     },
                   },
                 })}
@@ -119,7 +120,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   css: {
                     display: "none",
                     "@bp3": {
-                      display: "block",
+                      display: "flex",
                     },
                   },
                 })}
@@ -141,7 +142,7 @@ const NavigationTop = ({ pageProps }: any) => {
               css: {
                 display: "none",
                 "@bp3": {
-                  display: "block",
+                  display: "flex",
                 },
               },
             })}

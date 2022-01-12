@@ -39,10 +39,15 @@ const NavigationBottom = ({ pageProps }: any) => {
             justifyContent: "space-between",
             borderTop: "1px solid $mauve6",
             alignItems: "center",
-            p: "$4 $6",
+            p: "$4 $7",
             bottom: 0,
             left: 0,
             right: 0,
+            "@bp1": {
+              justifyContent: "center",
+              gridTemplateColumns: "1fr 1fr 1fr",
+              gridGap: "10%",
+            },
             "@bp3": {
               display: "none",
             },
