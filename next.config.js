@@ -1,9 +1,12 @@
 const path = require("path");
+const withPWA = require("next-pwa");
 
-const withSass = require("@zeit/next-sass");
-
-module.exports = withSass({
-  cssModules: true,
+module.exports = withPWA({
+  pwa: {
+    dest: "public",
+    register: true,
+    skipWaiting: true,
+  },
 });
 
 module.exports = {
