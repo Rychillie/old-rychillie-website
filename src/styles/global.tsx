@@ -1,6 +1,10 @@
 import { globalCss } from "./stitches.config";
 
 export const globalStyles = globalCss({
+  html: {
+    height: "-webkit-fill-available",
+    width: "100%",
+  },
   body: {
     backgroundColor: "$loContrast",
     color: "$hiContrast",
@@ -10,14 +14,17 @@ export const globalStyles = globalCss({
     display: "flex",
     alignItems: "flex-start",
     justifyContent: "center",
-    height: "calc(100vh-100px)",
+    height: "-webkit-fill-available",
+    position: "relative",
+    paddingBottom: "env(safe-area-inset-bottom, 0)",
   },
 
   "#__next": {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "center",
+    justifyContent: "flex-start",
+    height: "-webkit-fill-available",
     flex: 1,
   },
 
