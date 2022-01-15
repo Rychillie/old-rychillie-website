@@ -1,4 +1,5 @@
 import { globalStyles } from "@styles/global";
+import { useEffect } from "react";
 import type { AppProps } from "next/app";
 import NavigationTop from "@components/navigationTop";
 import NavigationBottom from "@components/navigationBottom";
@@ -6,6 +7,24 @@ import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   globalStyles();
+
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("/sw.js").then(
+          function (registration) {
+            console.log(
+              "Service Worker registration successful with scope: ",
+              registration.scope
+            );
+          },
+          function (err) {
+            console.log("Service Worker registration failed: ", err);
+          }
+        );
+      });
+    }
+  }, []);
 
   return (
     <>
