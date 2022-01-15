@@ -10,8 +10,32 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/apple-touch-icon.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/images/favicon-32x32.png"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/images/favicon-16x16.png"
+        />
+        <link rel="manifest" href="/site.webmanifest" />
+        <link
+          rel="mask-icon"
+          href="/images/safari-pinned-tab.svg"
+          color="#000000"
+        />
         <link rel="manifest" href="/manifest.json" />
-        <link rel="apple-touch-icon" href="/icon-512x512.png"></link>
+        <link rel="apple-touch-icon" href="/images/icon-512x512.png"></link>
+        <meta name="msapplication-TileColor" content="#ffffff" />
         <meta name="theme-color" content="#151718" />
         <meta
           name="viewport"
