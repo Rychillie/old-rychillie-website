@@ -16,7 +16,7 @@ export const globalStyles = globalCss({
     justifyContent: "center",
     height: "-webkit-fill-available",
     position: "relative",
-    paddingBottom: "env(safe-area-inset-bottom, 0)",
+    paddingBottom: "env(safe-area-inset-bottom)",
   },
 
   "#__next": {
@@ -24,7 +24,8 @@ export const globalStyles = globalCss({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "flex-start",
-    height: "-webkit-fill-available",
+    minHeight: "-webkit-fill-available",
+    height: "100%",
     flex: 1,
   },
 

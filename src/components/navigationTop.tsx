@@ -35,6 +35,7 @@ const NavigationTop = ({ pageProps }: any) => {
           pb: "$4",
           mb: "$2",
           "@bp3": {
+            borderBottom: "none",
             pt: "$5",
             pb: "$5",
             mb: "$3",

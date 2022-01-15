@@ -34,7 +34,7 @@ const NavigationBottom = ({ pageProps }: any) => {
           css: {
             width: "100%",
             display: "flex",
-            position: "fixed",
+            position: "absolute",
             flexDirection: "row",
             justifyContent: "space-between",
             borderTop: "1px solid $mauve6",
