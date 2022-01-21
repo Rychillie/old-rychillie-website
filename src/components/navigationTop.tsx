@@ -19,7 +19,6 @@ import { tooltipContent } from "@styles/tooltip";
 import { Container } from "@styles/structure";
 
 const NavigationTop = ({ pageProps }: any) => {
-  // detect if is page or not with router
   const router = useRouter();
 
   return (
@@ -29,13 +28,15 @@ const NavigationTop = ({ pageProps }: any) => {
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-between",
-          borderBottom: "1px solid $mauve6",
+          borderBottom: "1px solid $mauve1",
           alignItems: "center",
           pt: "$4",
           pb: "$4",
           mb: "$2",
-          "@bp3": {
+          "@bp2": {
             borderBottom: "none",
+          },
+          "@bp3": {
             pt: "$5",
             pb: "$5",
             mb: "$3",
@@ -68,7 +69,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   active: router.pathname === "/home" ? true : false,
                   css: {
                     display: "none",
-                    "@bp3": {
+                    "@bp2": {
                       display: "flex",
                     },
                   },
@@ -94,7 +95,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   active: router.pathname === "/writing" ? true : false,
                   css: {
                     display: "none",
-                    "@bp3": {
+                    "@bp2": {
                       display: "flex",
                     },
                   },
@@ -120,7 +121,7 @@ const NavigationTop = ({ pageProps }: any) => {
                   active: router.pathname === "/learn" ? true : false,
                   css: {
                     display: "none",
-                    "@bp3": {
+                    "@bp2": {
                       display: "flex",
                     },
                   },
@@ -142,7 +143,7 @@ const NavigationTop = ({ pageProps }: any) => {
             className={toolbarSeparator({
               css: {
                 display: "none",
-                "@bp3": {
+                "@bp2": {
                   display: "flex",
                 },
               },
@@ -258,6 +259,9 @@ const NavigationTop = ({ pageProps }: any) => {
                           color: "$hiContrast",
                           backgroundImage:
                             "linear-gradient(25deg, #FA3CF9 1.7%, #FC587E 50.85%, #FC3239 99.99%)",
+                        },
+                        "&:hover": {
+                          color: "$hiContrast",
                         },
                       },
                     })}

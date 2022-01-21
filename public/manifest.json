@@ -1,8 +1,8 @@
 {
   "name": "🦄 Rychillie",
   "short_name": "Rychillie",
-  "theme_color": "#151718",
-  "background_color": "#151718",
+  "theme_color": "#000000",
+  "background_color": "#000000",
   "prefer_related_applications": false,
   "description": "Frontend Developer",
   "orientation": "portrait",

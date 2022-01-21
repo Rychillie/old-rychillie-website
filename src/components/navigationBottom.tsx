@@ -37,7 +37,7 @@ const NavigationBottom = ({ pageProps }: any) => {
             position: "absolute",
             flexDirection: "row",
             justifyContent: "space-between",
-            borderTop: "1px solid $mauve6",
+            borderTop: "1px solid $mauve1",
             alignItems: "center",
             p: "$4 $7",
             bottom: 0,
@@ -48,7 +48,7 @@ const NavigationBottom = ({ pageProps }: any) => {
               gridTemplateColumns: "1fr 1fr 1fr",
               gridGap: "10%",
             },
-            "@bp3": {
+            "@bp2": {
               display: "none",
             },
           },

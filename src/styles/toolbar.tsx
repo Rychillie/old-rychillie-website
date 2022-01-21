@@ -11,7 +11,7 @@ export const toolbar = css({
 export const itemStyles = css({
   all: "unset",
   flex: "0 0 auto",
-  color: "$hiContrast",
+  color: "$hiContrastA",
   height: "$7",
   borderRadius: "$3",
   display: "inline-flex",
@@ -52,7 +52,7 @@ export const toolbarLink = css(itemStyles, {
   display: "inline-flex",
   justifyContent: "center",
   alignItems: "center",
-  color: "$hiContrast",
+  color: "$hiContrastA",
   "&:hover": {
     backgroundColor: "transparent",
     cursor: "pointer",
@@ -91,7 +91,7 @@ export const toggleItem = css(itemStyles, {
   ml: "$1",
   "&:first-child": { marginLeft: 0 },
   // bug when composing tooltip and toggle item
-  // '&[data-state=on]': { backgroundColor: '$mauve8', color: '$hiContrast' },
+  // '&[data-state=on]': { backgroundColor: '$mauve8', color: '$hiContrastA' },
   "&[aria-pressed=true]": { backgroundColor: "$mauve8", color: "$hiContrast" },
   "&[aria-pressed=false]": { color: "$hiContrast" },
   "&[aria-pressed=false] :hover": { color: "$hiContrast" },
@@ -102,5 +102,5 @@ export const toolbarSeparator = css({
   width: 1,
   height: "$3",
   mx: "$1",
-  backgroundColor: "$mauve6",
+  backgroundColor: "$mauve1",
 });

@@ -71,7 +71,8 @@ export const {
 
       // Semantic colors
       hiContrast: "$slate12",
-      loContrast: "$slate1",
+      hiContrastA: "$slate10",
+      loContrast: "hsl(0 0% 0%)",
       loContrastA: "hsl(200 7.0% 8.8% / 97%)",
       shadowLight: "hsl(206 22% 7% / 35%)",
       shadowDark: "hsl(206 22% 7% / 20%)",
