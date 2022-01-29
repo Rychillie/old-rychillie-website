@@ -43,8 +43,8 @@ const Home: NextPage = () => {
       <h1>{titleContent}</h1>
       <p>
         {synopsis} <Link href="/blog">{blog}</Link>, {know}{" "}
-        <Link href="/work">{myWork}</Link> {littleMore}{" "}
-        <Link href="/about">{aboutMe}</Link>.
+        {/* <Link href="/work">{myWork}</Link> */}
+        {myWork} {littleMore} <Link href="/about">{aboutMe}</Link>.
       </p>
       <ShortcutHome locale={pageLocale} />
       <div className={styles.profile}>
